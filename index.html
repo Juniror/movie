@@ -36,7 +36,7 @@
             <i class="fa-regular fa-user"></i>
             <p class="lang-signin">Sign in / Log in</p>
         </div>
-        <div id="user" class="signin" onclick="goProfile()" style="display: none;" >
+        <div id="user" class="signin" onclick="goProfile()" style="display: none;">
 
         </div>
     </div>
@@ -571,11 +571,209 @@
         </div>
     </div>
     <div id="ticket-page" class="page-content">
-        Ticket
-        <div id="whatmovie" class="whatmovie">
-
+        <div class="center">
+            <div class="ticketback">
+                <div class="text">
+                    <h1 id="moviename"></h1>
+                    <div class="sizebox" style="height: 20px;"></div>
+                    <h2 id="moviegenre"></h2>
+                    <div style="display: flex;">
+                        <i class="fa-regular fa-clock" style="font-size: 20px;"></i>
+                        <h2 id="movieduration"></h2>
+                    </div>
+                    <div class="detailbth">More Detail</div>
+                </div>
+                <div class="ccc"></div>
+                <div id="whatmovie" class="whatmovie"></div>
+            </div>
+        </div>
+        <div id="select-time">
+        <div id="date-selector" class="date-selector"></div>
+        
+      
+        <div class="heading">Select Time</div>
+        <div class="date-content" id="date-content-1">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">13.30</div>
+                <h3>SF Central World</h3>
+            </div>
+        </div>
+        
+        <div class="date-content" id="date-content-2">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">11.00</div>
+                <h3>SF Terminal 21</h3>
+            </div>
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">16.15</div>
+                <h3>SF เซ็นทรัล ลาดพร้าว</h3>
+            </div>
+        </div>
+        
+        <div class="date-content" id="date-content-3">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">10.45</div>
+                <h3>SF เมญ่า เชียงใหม่</h3>
+            </div>
+        </div>
+        
+        <div class="date-content" id="date-content-4">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">12.00</div>
+                <h3>SF เดอะมอลล์ โคราช</h3>
+            </div>
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">18.30</div>
+                <h3>SF เดอะมอลล์ บางกะปิ</h3>
+            </div>
+        </div>
+        
+        <div class="date-content" id="date-content-5">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">14.00</div>
+                <h3>SF มาร์เก็ต วิลเลจ</h3>
+            </div>
+        </div>
+        
+        <div class="date-content" id="date-content-6">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">11.30</div>
+                <h3>SF เอ็มบีเค</h3>
+            </div>
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">17.00</div>
+                <h3>SF ไอคอนสยาม</h3>
+            </div>
+        </div>
+        
+        <div class="date-content" id="date-content-7">
+            <div class="con">
+                <div class="loginbth2" onclick="goSeat()">15.45</div>
+                <h3>SF ฟิวเจอร์พาร์ครังสิต</h3>
+            </div>
         </div>
     </div>
+      </div>    
+    <div id="select-seat" style="display: none;">
+        <div class="container">
+            <div class="main-content">
+                <div class="seat-types">
+                    <div class="cinema-label">
+                        <div class="cinema-box">
+                            <div>CINEMA</div>
+                            <div class="cinema-number">1</div>
+                        </div>
+                    </div>
+                    
+                    <div class="seat-options">
+                        <div class="seat-type">
+                            <i class="fa-solid fa-couch seat-icon deluxe"></i>
+                            <div class="seat-info">
+                                <div>Event Deluxe</div>
+                                <div>650 THB</div>
+                            </div>
+                        </div>
+                        
+                        <div class="seat-type">
+                            <i class="fa-solid fa-couch seat-icon premium"></i>
+                            <div class="seat-info">
+                                <div>Event Premium</div>
+                                <div>1,300 THB</div>
+                            </div>
+                        </div>
+                        
+                        <div class="seat-type">
+                            <i class="fa-solid fa-couch seat-icon vip"></i>
+                            <div class="seat-info">
+                                <div>VIP</div>
+                                <div>1,500 THB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screen-container">
+                    <div class="screen-curve"></div>
+                    <div class="screen-text">SCREEN</div>
+                </div>
+                
+                <div class="seating-plan">
+                    <div class="row-labels">
+                        <div class="row-label">J</div>
+                        <div class="row-label">H</div>
+                        <div class="row-label">G</div>
+                        <div class="row-label">F</div>
+                        <div class="row-label">E</div>
+                        <div class="row-label">D</div>
+                        <div class="row-label">C</div>
+                        <div class="row-label">B</div>
+                        <div class="row-label">A</div>
+                        <div class="row-label">AA</div>
+                    </div>
+                    
+                    <div class="seats-container" id="seatsContainer">
+                        <!-- Seats will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="row-labels right">
+                        <div class="row-label">J</div>
+                        <div class="row-label">H</div>
+                        <div class="row-label">G</div>
+                        <div class="row-label">F</div>
+                        <div class="row-label">E</div>
+                        <div class="row-label">D</div>
+                        <div class="row-label">C</div>
+                        <div class="row-label">B</div>
+                        <div class="row-label">A</div>
+                        <div class="row-label">AA</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="event-info">
+                    <h2 id="movieTitle">Liella! 6th Live Tokyo Round Day 2</h2>
+                    <div class="event-date" id="eventDate">20 April 2025</div>
+                    <div class="event-time" id="eventTime">11:00</div>
+                </div>
+                
+                <div class="cinema-info">
+                    <h3>CINEMA 1</h3>
+                    <div id="cinemaLocation">SF CINEMA MBK Center</div>
+                </div>
+                
+                <div class="selection-info">
+                    <div class="selected-seat">
+                        <div>Selected Seat</div>
+                        <div class="seat-value">-</div>
+                    </div>
+                    
+                    <div class="total-price">
+                        <div>Total</div>
+                        <div class="price-value">0 THB</div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="discount-btn">
+                        <i class="fa-solid fa-ticket"></i>
+                        Discounts and Promotions
+                    </button>
+                    <button class="continue-btn">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="botimage">
+            <ul>
+                <li><img src="asset/sf/emp.png" alt=""></li>
+                <li><img src="asset/sf/sfw.png" alt=""></li>
+                <li><img src="asset/sf/sfx.png" alt=""></li>
+                <li><img src="asset/sf/sfo.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    
     <div class="footer">
         <div class="wrap" style="margin-bottom: 45px;">
             <ul>
@@ -586,7 +784,7 @@
                 <li>Work With Us</li>
                 <li>Contact Us</li>
                 <li>Group Booking</li>
-                <li> Privacy Policy</li>    
+                <li>Privacy Policy</li>
 
             </ul>
             <p>SF Smart Call: 1349 </p>

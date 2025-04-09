@@ -1,5 +1,4 @@
-
-
+// Image and data constants
 const hori_img = [
     "asset/horizontal/jumanji.jpg",
     "asset/horizontal/snowwhite.jpg"
@@ -30,8 +29,6 @@ const translations = {
         'lang-boxoffice': 'บ็อกซ์ออฟฟิศ',
         'lang-sf-boxoffice': 'บ็อกซ์ออฟฟิศ SF',
         'lang-us-boxoffice': 'บ็อกซ์ออฟฟิศ US',
-
-
     },
     english: {
         // Navigation
@@ -57,8 +54,6 @@ const translations = {
         'lang-boxoffice': 'Box Office',
         'lang-sf-boxoffice': 'SF Box Office',
         'lang-us-boxoffice': 'US Box Office',
-
-
     }
 };
 
@@ -329,8 +324,7 @@ const comingSoonMovies = {
     ]
 };
 
-
-system_therter = {
+const system_therter = {
     "system": [
         {
             image: "asset/logo/mx4d.png",
@@ -375,10 +369,9 @@ system_therter = {
             text: "Cine Cafe Cinema"
         }
     ]
-}
+};
 
 const promotion = [
-
     {
         image: "asset/promotion/promo1.jpg",
         detail: "Promotion"
@@ -387,8 +380,8 @@ const promotion = [
         image: "asset/promotion/promo2.jpg",
         detail: "Promotion"
     }
+];
 
-]
 const type = {
     brand: [
         {
@@ -566,7 +559,7 @@ const type = {
         },
         {
             image: "asset/7types/all/4.jpg",
-            detail: "สมาชิก SF+ ซื้อบัตรชมภาพยนตร์ เรื่อง “A Minecraft Movie” ทุกที่นั่ง รับทันที SF+ Collectible Ticket ลิขสิทธิ์แท้จากภาพยนตร์",
+            detail: "สมาชิก SF+ ซื้อบัตรชมภาพยนตร์ เรื่อง A Minecraft Movie ทุกที่นั่ง รับทันที SF+ Collectible Ticket ลิขสิทธิ์แท้จากภาพยนตร์",
             subdetail: "จำนวนจำกัด"
         },
         {
@@ -601,12 +594,12 @@ const type = {
         },
         {
             image: "asset/7types/all/11.png",
-            detail: "Presale Promotion ภาพยนตร์เรื่อง “ซองแดงแต่งผี” : จำหน่ายบัตรชมภาพยนตร์ราคาพิเศษในรูปแบบ \"COLLECTIBLE TICKET SPECIAL EDITION\"",
+            detail: "Presale Promotion ภาพยนตร์เรื่อง ซองแดงแต่งผี จำหน่ายบัตรชมภาพยนตร์ราคาพิเศษในรูปแบบ COLLECTIBLE TICKET SPECIAL EDITION\"",
             subdetail: "จำนวน 5,000 ชุด"
         },
         {
             image: "asset/7types/all/12.jpg",
-            detail: "สมาชิก SF+ ซื้อบัตรชมภาพยนตร์ เรื่อง “ซองแดงแต่งผี” ทุกที่นั่ง รับทันที SF+ Collectible Ticket ลิขสิทธิ์แท้จากภาพยนตร์",
+            detail: "สมาชิก SF+ ซื้อบัตรชมภาพยนตร์ เรื่อง ซองแดงแต่งผี ทุกที่นั่ง รับทันที SF+ Collectible Ticket ลิขสิทธิ์แท้จากภาพยนตร์",
             subdetail: "จำกัด 1 ใบ / 1 รอบ / 1 สมาชิก"
         }
     ],
@@ -619,19 +612,19 @@ const type = {
         },
         {
             "head": "News & Activities",
-            "detail": "เอส เอฟ ปรับโฉมใหม่ “โรงภาพยนตร์ เอส เอฟ ซีเนม่า โรบินสัน จันทบุรี” ชวนดูหนังแบบมันส์สะใจ ภาพชัด เสียงกระหึ่ม สุดทุกอารมณ์!",
+            "detail": "เอส เอฟ ปรับโฉมใหม่ โรงภาพยนตร์ เอส เอฟ ซีเนม่า โรบินสัน จันทบุรี ชวนดูหนังแบบมันส์สะใจ ภาพชัด เสียงกระหึ่ม สุดทุกอารมณ์!",
             "date": "",
             "image": "asset/news/2.jpg"
         },
         {
             "head": "News & Activities",
-            "detail": "อยากดูหนังฟรี! ต้องรู้เรื่องนี้ “เมษาดับร้อน ปรอทแตก 2”",
+            "detail": "อยากดูหนังฟรี! ต้องรู้เรื่องนี้ เมษาดับร้อน ปรอทแตก 2",
             "date": "ตั้งแต่วันที่ 1 เมษายน ถึง 30 เมษายน 2568",
             "image": "asset/news/3.jpg"
         },
         {
             "head": "Movie News",
-            "detail": "ออกผจญภัยสุดคุ้ม! กับรวมโปร “A Minecraft Movie” ที่ เอส เอฟ",
+            "detail": "ออกผจญภัยสุดคุ้ม! กับรวมโปร A Minecraft Movie ที่ เอส เอฟ",
             "date": "ภาพยนตร์เข้าฉายตั้งแต่วันที่ 3 เมษายน 2568 เป็นต้นไป",
             "image": "asset/news/4.jpg"
         },
@@ -655,7 +648,7 @@ const type = {
         },
         {
             "head": "News & Activities, Movie News",
-            "detail": "รวมทุกเรื่องต้องรู้ ก่อนกดบัตรไปมันส์กับ Ado SPECIAL LIVE “Shinzou” in Cinema",
+            "detail": "รวมทุกเรื่องต้องรู้ ก่อนกดบัตรไปมันส์กับ Ado SPECIAL LIVE Shinzou in Cinema",
             "date": "เปิดจำหน่ายบัตร 21 มีนาคม 68 เวลา 11.00 น.",
             "image": "asset/news/8.jpg"
         },
@@ -666,25 +659,645 @@ const type = {
             "image": "asset/news/9.jpg"
         }
     ]
+};
 
+const simpledate = [
+    {
+        day: "Thu",
+        date: "10/4/2568",
+        page: "date-content-1"
+    },
+    {
+        day: "Fri",
+        date: "11/4/2568",
+        page: "date-content-2"
+    },
+    {
+        day: "Sat",
+        date: "12/4/2568",
+        page: "date-content-3"
+    },
+    {
+        day: "Sun",
+        date: "13/4/2568",
+        page: "date-content-4"
+    },
+    {
+        day: "Mon",
+        date: "14/4/2568",
+        page: "date-content-5"
+    },
+    {
+        day: "Tue",
+        date: "15/4/2568",
+        page: "date-content-6"
+    },
+    {
+        day: "Wed",
+        date: "16/4/2568",
+        page: "date-content-7"
+    }
+];
 
-
-}
-
+// Global variables
+let db;
+let username;
+let usersurname;
+let islogin = false;
+let selectedSeats = [];
+let totalPrice = 0;
+let bookedSeats = [];
 let currentLanguage = 'thai';
-const b = document.getElementById("movie-grid")
-comingSoonMovies[currentLanguage].forEach(movie => {
-    b.innerHTML += createMovieItem(movie);
+let nxame = false;
+
+// Movie details (can be passed from the previous page)
+const movieDetails = {
+    title: document.getElementById('movieTitle')?.textContent || "Liella! 6th Live Tokyo Round Day 2",
+    date: document.getElementById('eventDate')?.textContent || "20 April 2025",
+    time: document.getElementById('eventTime')?.textContent || "11:00",
+    location: document.getElementById('cinemaLocation')?.textContent || "SF CINEMA MBK Center"
+};
+
+// Seat layout configuration
+const rows = [
+    { id: 'J', seats: 20, type: 'available', price: 650 },
+    { id: 'H', seats: 20, type: 'available', price: 650 },
+    { id: 'G', seats: 20, type: 'available', price: 650 },
+    { id: 'F', seats: 20, type: 'available', price: 650 },
+    { id: 'E', seats: 20, type: 'available', price: 650 },
+    { id: 'D', seats: 20, type: 'premium', price: 1300 }, // Blue sofa (Premium)
+    { id: 'C', seats: 20, type: 'premium', price: 1300 }, // Blue sofa (Premium)
+    { id: 'B', seats: 20, type: 'premium', price: 1300 }, // Blue sofa (Premium)
+    { id: 'A', seats: 20, type: 'premium', price: 1300 }, // Blue sofa (Premium)
+    { id: 'AA', seats: 20, type: 'vip', price: 1500 }     // VIP (formerly Gold)
+];
+
+// Initialize page elements
+document.addEventListener('DOMContentLoaded', function() {
+    const b = document.getElementById("movie-grid");
+    if (b) {
+        comingSoonMovies[currentLanguage].forEach(movie => {
+            b.innerHTML += createMovieItem(movie);
+        });
+    }
+
+    // Initialize date selector
+    let date = document.getElementById('date-selector');
+    if (date) {
+        simpledate.forEach(item => {
+            $('.date-selector').append(createdate(item));
+        });
+    }
+
+    // Set initial tab
+    changeDate("date-content-1");
+    changeTab("brand");
+    changeTab2("allc");
+    changeTab3("booking");
+
+    // Initialize promotion background
+    let blur_promo = document.getElementById('blur-promotion');
+    if (blur_promo) {
+        blur_promo.style.backgroundImage = `url("${promotion[0].image}")`;
+    }
+
+    // Initialize brand items
+    let brand = document.getElementById('brand-items');
+    if (brand) {
+        for (let i = 0; i < type.brand.length; i++) {
+            brand.innerHTML += `<img src="${type.brand[i].image}" alt=""></img>`;
+        }
+    }
+
+    // Initialize all items
+    let all = document.getElementById("all-item");
+    if (all) {
+        type.all.forEach((item) => {
+            all.innerHTML += createitem(item);
+        });
+    }
+
+    // Initialize news items
+    var ally = document.getElementById('ally');
+    if (ally) {
+        type.mews.forEach((item) => {
+            ally.innerHTML += createnews(item);
+        });
+    }
+
+    // Initialize language and theater system
+    updateLanguage('thai');
+    createSystem_Therter("system");
 });
 
-function createSystem_Therter(type) {
-    const e = document.getElementById("st-display")
-    e.innerHTML = "";
-    system_therter[type].forEach(element => {
-        e.innerHTML += createSystemTherter(element)
+// Database initialization - consolidated
+const initializeDatabase = () => {
+    const request = indexedDB.open('myDatabase', 1);
+
+    request.onerror = function(event) {
+        console.error('Database error:', event.target.errorCode);
+    };
+
+    request.onsuccess = function(event) {
+        db = event.target.result;
+        console.log('Database opened successfully');
+        
+        if (db.objectStoreNames.contains('bookings')) {
+            loadBookedSeats();
+            loadBookingHistory();
+        } else {
+            upgradeDatabase();
+        }
+    };
+
+    request.onupgradeneeded = function(event) {
+        const db = event.target.result;
+
+        // Create users store if it doesn't exist
+        if (!db.objectStoreNames.contains('users')) {
+            const objectStore = db.createObjectStore('users', { keyPath: 'id', autoIncrement: true });
+            objectStore.createIndex('email', 'email', { unique: true });
+            objectStore.createIndex('name', 'name', { unique: false });
+            objectStore.createIndex('surname', 'surname', { unique: false });
+            objectStore.createIndex('password', 'password', { unique: false });
+        }
+        
+        // Create bookings store if it doesn't exist
+        if (!db.objectStoreNames.contains('bookings')) {
+            const bookingsStore = db.createObjectStore('bookings', { keyPath: 'id', autoIncrement: true });
+            bookingsStore.createIndex('userId', 'userId', { unique: false });
+            bookingsStore.createIndex('movieTitle', 'movieTitle', { unique: false });
+            bookingsStore.createIndex('date', 'date', { unique: false });
+            bookingsStore.createIndex('seats', 'seats', { unique: false, multiEntry: true });
+        }
+
+        console.log('Object stores and indexes created');
+    };
+};
+
+// Function to upgrade database if needed
+function upgradeDatabase() {
+    const version = db.version + 1;
+    db.close();
+    const upgradeRequest = indexedDB.open('myDatabase', version);
+    
+    upgradeRequest.onupgradeneeded = function(event) {
+        const db = event.target.result;
+        
+        // Create bookings store if it doesn't exist
+        if (!db.objectStoreNames.contains('bookings')) {
+            const bookingsStore = db.createObjectStore('bookings', { keyPath: 'id', autoIncrement: true });
+            bookingsStore.createIndex('userId', 'userId', { unique: false });
+            bookingsStore.createIndex('movieTitle', 'movieTitle', { unique: false });
+            bookingsStore.createIndex('date', 'date', { unique: false });
+            bookingsStore.createIndex('seats', 'seats', { unique: false, multiEntry: true });
+        }
+    };
+    
+    upgradeRequest.onsuccess = function(event) {
+        db = event.target.result;
+        console.log('Database upgraded successfully');
+        loadBookedSeats();
+        loadBookingHistory();
+    };
+}
+
+// Function to load booked seats from IndexedDB
+function loadBookedSeats() {
+    if (!db) return;
+    
+    const transaction = db.transaction(['bookings'], 'readonly');
+    const bookingsStore = transaction.objectStore('bookings');
+    const movieIndex = bookingsStore.index('movieTitle');
+    
+    const movieQuery = movieIndex.getAll(movieDetails.title);
+    
+    movieQuery.onsuccess = function() {
+        const bookings = movieQuery.result;
+        
+        // Filter bookings for this specific date and extract all booked seats
+        bookedSeats = [];
+        bookings.forEach(booking => {
+            if (booking.date === movieDetails.date) {
+                booking.seats.forEach(seat => {
+                    bookedSeats.push(seat);
+                });
+            }
+        });
+        
+        // Generate seats after loading booked seats
+        generateSeats();
+    };
+    
+    movieQuery.onerror = function(event) {
+        console.error('Error loading booked seats:', event.target.error);
+        // Generate seats anyway, even if we couldn't load booked seats
+        generateSeats();
+    };
+}
+
+// Function to load booking history from IndexedDB
+function loadBookingHistory() {
+    if (!db || !islogin) return;
+    
+    const transaction = db.transaction(['bookings'], 'readonly');
+    const bookingsStore = transaction.objectStore('bookings');
+    const userIndex = bookingsStore.index('userId');
+    
+    // Use the current user's name as the userId
+    const userId = username + ' ' + usersurname;
+    const userQuery = userIndex.getAll(userId);
+    
+    userQuery.onsuccess = function() {
+        const bookings = userQuery.result;
+        const bookingHistoryContainer = document.getElementById('bookingHistoryContainer');
+        const noBookingsMessage = document.getElementById('noBookingsMessage');
+        
+        if (bookingHistoryContainer && noBookingsMessage) {
+            if (bookings.length > 0) {
+                noBookingsMessage.style.display = 'none';
+                
+                // Clear existing history
+                while (bookingHistoryContainer.firstChild) {
+                    bookingHistoryContainer.removeChild(bookingHistoryContainer.firstChild);
+                }
+                
+                // Add each booking to the history
+                bookings.forEach(booking => {
+                    const bookingItem = document.createElement('div');
+                    bookingItem.className = 'booking-item';
+                    
+                    bookingItem.innerHTML = `
+                        <h3>${booking.movieTitle}</h3>
+                        <div class="booking-details">
+                            <span>Date:</span>
+                            <span>${booking.date}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Time:</span>
+                            <span>${booking.time}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Location:</span>
+                            <span>${booking.location}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Seats:</span>
+                            <span>${booking.seats.join(', ')}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Total:</span>
+                            <span>${booking.totalPrice} THB</span>
+                        </div>
+                    `;
+                    
+                    bookingHistoryContainer.appendChild(bookingItem);
+                });
+            } else {
+                noBookingsMessage.style.display = 'block';
+            }
+        }
+    };
+    
+    userQuery.onerror = function(event) {
+        console.error('Error loading booking history:', event.target.error);
+    };
+}
+
+// Function to update booking history in profile page
+function updateProfileBookingHistory() {
+    if (!db || !islogin) return;
+    
+    const transaction = db.transaction(['bookings'], 'readonly');
+    const bookingsStore = transaction.objectStore('bookings');
+    const userIndex = bookingsStore.index('userId');
+    
+    // Use the current user's name as the userId
+    const userId = username + ' ' + usersurname;
+    const userQuery = userIndex.getAll(userId);
+    
+    userQuery.onsuccess = function() {
+        const bookings = userQuery.result;
+        const historyBookingElement = document.getElementById('history-booking');
+        
+        if (historyBookingElement) {
+            if (bookings.length > 0) {
+                // Clear existing history
+                historyBookingElement.innerHTML = '';
+                
+                // Add each booking to the history
+                bookings.forEach(booking => {
+                    const bookingItem = document.createElement('div');
+                    bookingItem.className = 'booking-item';
+                    
+                    bookingItem.innerHTML = `
+                        <h3>${booking.movieTitle}</h3>
+                        <div class="booking-details">
+                            <span>Date:</span>
+                            <span>${booking.date}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Time:</span>
+                            <span>${booking.time}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Location:</span>
+                            <span>${booking.location}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Seats:</span>
+                            <span>${booking.seats.join(', ')}</span>
+                        </div>
+                        <div class="booking-details">
+                            <span>Total:</span>
+                            <span>${booking.totalPrice} THB</span>
+                        </div>
+                    `;
+                    
+                    historyBookingElement.appendChild(bookingItem);
+                });
+            } else {
+                historyBookingElement.innerHTML = "You don't have any booking";
+            }
+        }
+    };
+    
+    userQuery.onerror = function(event) {
+        console.error('Error loading booking history for profile:', event.target.error);
+    };
+}
+
+// Function to generate seats
+function generateSeats() {
+    const seatsContainer = document.getElementById('seatsContainer');
+    if (!seatsContainer) return;
+    
+    // Clear existing seats
+    seatsContainer.innerHTML = '';
+    
+    rows.forEach(row => {
+        for (let i = 0; i < row.seats; i++) {
+            const seatNumber = i + 1; // Start from 1 instead of 0
+            const seatId = `${row.id}${seatNumber}`;
+            const seat = document.createElement('div');
+            seat.classList.add('seat');
+            
+            // Create the seat icon
+            const icon = document.createElement('i');
+            
+            // Check if seat is already booked
+            if (bookedSeats.includes(seatId)) {
+                seat.classList.add('booked');
+                icon.classList.add('fa-solid', 'fa-xmark'); // Use X mark for booked seats
+            } else {
+                icon.classList.add('fa-solid', 'fa-couch'); // Use couch for available seats
+            }
+            
+            seat.appendChild(icon);
+            
+            // Add seat ID display
+            const seatIdElement = document.createElement('div');
+            seatIdElement.classList.add('seat-id');
+            seatIdElement.textContent = seatId;
+            seat.appendChild(seatIdElement);
+            
+            // Set seat type based on row configuration
+            seat.classList.add(row.type);
+            seat.dataset.price = row.price;
+            seat.dataset.id = seatId;
+            
+            // Add click event for available seats
+            if (!bookedSeats.includes(seatId)) {
+                seat.addEventListener('click', function() {
+                    const seatId = this.dataset.id;
+                    const seatPrice = parseInt(this.dataset.price);
+                    const icon = this.querySelector('i');
+                    
+                    // Check if seat is already selected
+                    const seatIndex = selectedSeats.findIndex(s => s.id === seatId);
+                    
+                    if (seatIndex === -1) {
+                        // Seat not selected, add it
+                        this.classList.add('selected');
+                        
+                        // Change icon to check mark
+                        icon.classList.remove('fa-couch');
+                        icon.classList.add('fa-check');
+                        
+                        selectedSeats.push({
+                            id: seatId,
+                            price: seatPrice
+                        });
+                    } else {
+                        // Seat already selected, remove it
+                        this.classList.remove('selected');
+                        
+                        // Change icon back to couch
+                        icon.classList.remove('fa-check');
+                        icon.classList.add('fa-couch');
+                        
+                        selectedSeats.splice(seatIndex, 1);
+                    }
+                    
+                    // Update sidebar info
+                    updateSidebar();
+                });
+            }
+            
+            seatsContainer.appendChild(seat);
+        }
     });
 }
 
+// Function to update the sidebar with selected seats and total price
+function updateSidebar() {
+    const selectedSeatElement = document.querySelector('.seat-value');
+    const priceValueElement = document.querySelector('.price-value');
+    
+    if (selectedSeatElement && priceValueElement) {
+        if (selectedSeats.length === 0) {
+            selectedSeatElement.textContent = '-';
+            priceValueElement.textContent = '0 THB';
+        } else {
+            // Update selected seats display
+            selectedSeatElement.textContent = selectedSeats.map(seat => seat.id).join(', ');
+            
+            // Calculate total price
+            totalPrice = selectedSeats.reduce((sum, seat) => sum + seat.price, 0);
+            priceValueElement.textContent = `${totalPrice} THB`;
+        }
+    }
+}
+
+// Function to save booking to IndexedDB
+function saveBooking() {
+    if (!db || selectedSeats.length === 0) return;
+    
+    // Check if user is logged in
+    if (!islogin) {
+        alert('Please log in to book seats.');
+        return;
+    }
+    
+    const transaction = db.transaction(['bookings'], 'readwrite');
+    const bookingsStore = transaction.objectStore('bookings');
+    
+    // Create booking record
+    const booking = {
+        userId: username + ' ' + usersurname, // Use the user's name as userId
+        movieTitle: movieDetails.title,
+        date: movieDetails.date,
+        time: movieDetails.time,
+        location: movieDetails.location,
+        seats: selectedSeats.map(seat => seat.id),
+        totalPrice: totalPrice,
+        timestamp: new Date().toISOString()
+    };
+    
+    const bookingRequest = bookingsStore.add(booking);
+    
+    bookingRequest.onsuccess = function(event) {
+        const bookingId = event.target.result;
+        
+        // Update UI
+        alert(`Booking successful! Your booking ID is: ${bookingId}`);
+        
+        // Add booked seats to the bookedSeats array
+        selectedSeats.forEach(seat => {
+            bookedSeats.push(seat.id);
+        });
+        
+        // Refresh seats and booking history
+        generateSeats();
+        loadBookingHistory();
+        updateProfileBookingHistory();
+        
+        // Clear selection
+        selectedSeats = [];
+        updateSidebar();
+    };
+    
+    bookingRequest.onerror = function(event) {
+        console.error('Error saving booking:', event.target.error);
+        alert('There was an error processing your booking. Please try again.');
+    };
+}
+
+// User authentication functions
+function addUser() {
+    if (!db) {
+        alert('Database not available. Please try again later.');
+        return;
+    }
+    
+    // Start a transaction with read/write access to the 'users' object store
+    const transaction = db.transaction(["users"], "readwrite");
+    const objectStore = transaction.objectStore("users");
+
+    // Get input values from the user form
+    let email = document.getElementById("input-email").value;
+    let password = document.getElementById("input-password").value;
+    let name = document.getElementById("input-name").value;
+    let surname = document.getElementById("input-surname").value;
+
+    // Validate inputs
+    if (!email || !password || !name || !surname) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    // Create a user object to store in the database
+    const user = {
+        email: email,
+        password: password,
+        name: name,
+        surname: surname
+    };
+
+    // Add the user to the object store
+    const request = objectStore.add(user);
+
+    // Handle success
+    request.onsuccess = function() {
+        console.log("User added successfully:", user);
+        alert("User added successfully!");
+        
+        // Reset form and UI
+        document.getElementById("input-email").value = "";
+        document.getElementById("input-password").value = "";
+        document.getElementById("input-name").value = "";
+        document.getElementById("input-surname").value = "";
+        
+        // Switch back to login view
+        addName();
+    };
+
+    // Handle error
+    request.onerror = function(event) {
+        console.error("Error adding user:", event.target.error);
+        alert("Error adding user. Email may already be registered.");
+    };
+}
+
+function checkUserEmailAndPassword() {
+    if (!db) {
+        alert('Database not available. Please try again later.');
+        return;
+    }
+    
+    const transaction = db.transaction(["users"], "readonly");
+    const objectStore = transaction.objectStore("users");
+
+    let email = document.getElementById("input-email").value;
+    let password = document.getElementById("input-password").value;
+
+    // Validate inputs
+    if (!email || !password) {
+        alert('Please enter both email and password');
+        return;
+    }
+
+    // Query the email index to check if the email exists
+    const emailIndex = objectStore.index("email");
+    const getEmailRequest = emailIndex.get(email);
+
+    getEmailRequest.onsuccess = function() {
+        if (getEmailRequest.result) {
+            // Email exists, now check if the password matches
+            if (getEmailRequest.result.password === password) {
+                islogin = true;
+                document.getElementById('popup').style.display = 'none';
+                console.log("User authenticated successfully.");
+                document.getElementById('openPopup').style.display = "none";
+                document.getElementById('user').style.display = "flex";
+                username = getEmailRequest.result.name;
+                usersurname = getEmailRequest.result.surname;
+                document.getElementById('user').innerHTML = username + " " + usersurname;
+                document.getElementById('name').innerHTML = "Hello, " + username + " " + usersurname;
+                document.getElementById("input-email").value = "";
+                document.getElementById("input-password").value = "";
+                alert("Login successful!");
+                
+                // Load booking history after successful login
+                loadBookingHistory();
+                updateProfileBookingHistory();
+            } else {
+                console.log("Incorrect password.");
+                alert("Incorrect password. Please try again.");
+            }
+        } else {
+            console.log("Email does not exist.");
+            alert("Email does not exist.");
+        }
+    };
+
+    getEmailRequest.onerror = function(event) {
+        console.error("Error retrieving user by email:", event.target.error);
+        alert("Error checking credentials. Please try again.");
+    };
+}
+
+// UI Helper Functions
 function createMovieItem(movie) {
     let movieData = encodeURIComponent(JSON.stringify(movie));
     return `
@@ -698,14 +1311,16 @@ function createMovieItem(movie) {
         </div>
     `;
 }
+
 function createSystemTherter(item) {
     return `
-            <div class="item">  
-                ${item.text}
-                    <div class="inside"><img src="${item.image}" alt=""></div>
-            </div>
-           `
+        <div class="item">  
+            ${item.text}
+            <div class="inside"><img src="${item.image}" alt=""></div>
+        </div>
+    `;
 }
+
 function createitem(item) {
     return `
         <div class="item">
@@ -713,8 +1328,9 @@ function createitem(item) {
             <h2>${item.detail}</h2>
             <h4>${item.subdetail}</h4>
         </div>
-    `
+    `;
 }
+
 function createnews(item) {
     return `
         <div class="item">
@@ -722,65 +1338,85 @@ function createnews(item) {
             <h3>${item.head}</h3>
             <h3>${item.detail}</h3>
             <h4>${item.date}</h4>
-        </div>`
+        </div>`;
 }
-var nxame = false;
-function addName() {
-    let login = document.getElementById('lg');
-    let forget = document.getElementById('forget');
-    if (nxame) {
-        login.style.display = "flex"
-        forget.style.display = "block"
-        let n = document.getElementById('input-name1');
-        let s = document.getElementById('input-surname1');
-        let s1 = document.getElementById('s1');
-        let s2 = document.getElementById('s2');
-        let sign = document.getElementById('sigh');
-        n.remove()
-        s.remove()
-        s1.remove()
-        s2.remove()
-        sign.remove()
-        nxame = false
-    }
-    else {
-        forget.style.display = "none"
-        login.style.display = "none"
-        let input = document.getElementById('input');
-        input.innerHTML += `
-    <div  id="s1" class="sizebox" style="height: 20px;"></div>
-        <div id="input-name1" class="input">
-            <div class="r">
-                <input id="input-name" type="text" placeholder="Name">
-            </div>
-            <div class="l">
-                <i class="fa-regular fa-user"
-                   style="color: rgba(0, 0, 0, 0.15); font-size: 24px;"></i>
-            </div>
+
+function createdate(item) {
+    return `
+        <div onclick="changeDate('${item.page}')" class="item">
+            <h3>${item.day}</h3>
+            <h4>${item.date}</h4>
         </div>
-        <div id="s2" class="sizebox" style="height: 20px;"></div>
-        <div id="input-surname1" class="input">
-            <div class="r">
-                <input id="input-surname" type="text" placeholder="Surname">
-            </div>
-            <div class="l">
-                <i class="fa-regular fa-user"
-                   style="color: rgba(0, 0, 0, 0.15); font-size: 24px;"></i>
-            </div>
-        </div>
-            <div id ="sigh" class="loginbth" onclick="addUser()">Sign in</div>
     `;
-        nxame = true;
+}
+
+function createSystem_Therter(type) {
+    const e = document.getElementById("st-display");
+    if (e) {
+        e.innerHTML = "";
+        system_therter[type].forEach(element => {
+            e.innerHTML += createSystemTherter(element);
+        });
     }
-
 }
-islogin = false;
-function lockout(){
-    document.getElementById('user').style = "none"
-    document.getElementById('openPopup').style = "flex"
- 
 
+// Tab and navigation functions
+function changeDate(tabName) {
+    // Hide all tab contents
+    var tabs = document.querySelectorAll('.date-content');
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+
+    // Show the selected tab
+    var activeTab = document.getElementById(tabName);
+    if (activeTab) {
+        activeTab.classList.add('active');
+    }
 }
+
+function changeTab(tabName) {
+    // Hide all tab contents
+    var tabs = document.querySelectorAll('.tabcontent');
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+
+    // Show the selected tab
+    var activeTab = document.getElementById(tabName);
+    if (activeTab) {
+        activeTab.classList.add('active');
+    }
+}
+
+function changeTab2(tabName) {
+    // Hide all tab contents
+    var tabs = document.querySelectorAll('.content');
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+
+    // Show the selected tab
+    var activeTab = document.getElementById(tabName);
+    if (activeTab) {
+        activeTab.classList.add('active');
+    }
+}
+
+function changeTab3(tabName) {
+    // Hide all tab contents
+    var tabs = document.querySelectorAll('.profile-tab');
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+
+    // Show the selected tab
+    var activeTab = document.getElementById(tabName);
+    if (activeTab) {
+        activeTab.classList.add('active');
+    }
+}
+
 function updateLanguage(lang) {
     currentLanguage = lang;
 
@@ -793,37 +1429,35 @@ function updateLanguage(lang) {
     updateMovieGrids();
 }
 
-// Function to update movie grids based on language
 function updateMovieGrids() {
     const upcomingGrid = document.getElementById('upcomingGrid');
     const comingSoonGrid = document.getElementById('comingSoonGrid');
 
-    // Clear grids
-    upcomingGrid.innerHTML = '';
-    comingSoonGrid.innerHTML = '';
+    if (upcomingGrid && comingSoonGrid) {
+        // Clear grids
+        upcomingGrid.innerHTML = '';
+        comingSoonGrid.innerHTML = '';
 
-    // Populate with current language
-    upcomingMovies[currentLanguage].forEach(movie => {
-        upcomingGrid.innerHTML += createMovieItem(movie);
-    });
+        // Populate with current language
+        upcomingMovies[currentLanguage].forEach(movie => {
+            upcomingGrid.innerHTML += createMovieItem(movie);
+        });
 
-    comingSoonMovies[currentLanguage].forEach(movie => {
-        comingSoonGrid.innerHTML += createMovieItem(movie);
-    });
+        comingSoonMovies[currentLanguage].forEach(movie => {
+            comingSoonGrid.innerHTML += createMovieItem(movie);
+        });
+    }
 }
 
-function changeTab(tabName) {
-    // Hide all tab contents
-    var tabs = document.querySelectorAll('.tabcontent');
-    tabs.forEach(function (tab) {
-        tab.classList.remove('active');
-    });
-
-    // Show the selected tab
-    var activeTab = document.getElementById(tabName);
-    activeTab.classList.add('active');
+// Navigation functions
+function goSeat() {
+    let time = document.getElementById('select-time');
+    let seat = document.getElementById('select-seat');
+    if (time && seat) {
+        time.style.display = "none";
+        seat.style.display = "block";
+    }
 }
-changeTab("brand")
 
 function getTicket(element) {
     const movieString = element.getAttribute("data-movie");
@@ -833,112 +1467,143 @@ function getTicket(element) {
         page.classList.remove('active');
     });
 
-    document.getElementById('ticket-page').classList.add('active');
-    document.getElementById('whatmovie').style.background = `url(${movie.image})`;
-  
+    const ticketPage = document.getElementById('ticket-page');
+    if (ticketPage) {
+        ticketPage.classList.add('active');
+        
+        const whatMovie = document.getElementById('whatmovie');
+        const movieName = document.getElementById('moviename');
+        const movieGenre = document.getElementById('moviegenre');
+        const movieDuration = document.getElementById('movieduration');
+        
+        if (whatMovie) whatMovie.style.backgroundImage = `url(${movie.image})`;
+        if (movieName) movieName.innerHTML = movie.title;
+        if (movieGenre) movieGenre.innerHTML = movie.genre;
+        if (movieDuration) movieDuration.innerHTML = movie.duration + " Mins";
+    }
 }
-function goProfile(){
+
+function goProfile() {
     document.querySelectorAll('.page-content').forEach(page => {
         page.classList.remove('active');
     });
 
-    document.getElementById('profile-page').classList.add('active');
-}
-let blur_promo = document.getElementById('blur-promotion');
-blur_promo.style.backgroundImage = `url("${promotion[0].image}")`;
-
-let brand = document.getElementById('brand-items')
-for (let i = 0; i < type.brand.length; i++) {
-    brand.innerHTML += `<img src="${type.brand[i].image}" alt=""></img>`
-}
-
-let all = document.getElementById("all-item");
-type.all.forEach((item) => {
-    all.innerHTML += createitem(item)
-})
-function changeTab2(tabName) {
-    // Hide all tab contents
-    var tabs = document.querySelectorAll('.content');
-    tabs.forEach(function (tab) {
-        tab.classList.remove('active');
-    });
-
-    // Show the selected tab
-    var activeTab = document.getElementById(tabName);
-    activeTab.classList.add('active');
-}
-changeTab2("allc")
-var ally = document.getElementById('ally');
-type.mews.forEach((item) => {
-    ally.innerHTML += createnews(item)
-})
-
-function changeTab3(tabName) {
-    // Hide all tab contents
-    var tabs = document.querySelectorAll('.profile-tab');
-    tabs.forEach(function (tab) {
-        tab.classList.remove('active');
-    });
-
-    // Show the selected tab
-    var activeTab = document.getElementById(tabName);
-    activeTab.classList.add('active');
-}
-changeTab3("booking")
-
-const openBtn = document.getElementById("openPopup");
-const closeBtn = document.getElementById("closePopup");
-const popup = document.getElementById("popup");
-
-openBtn.addEventListener("click", () => {
-    popup.style.display = "flex";
-});
-
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-// Optional: close popup if user clicks outside content
-popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-        popup.style.display = "none";
+    const profilePage = document.getElementById('profile-page');
+    if (profilePage) {
+        profilePage.classList.add('active');
     }
-});
+}
 
+function lockout() {
+    const userElement = document.getElementById('user');
+    const openPopupElement = document.getElementById('openPopup');
+    
+    if (userElement && openPopupElement) {
+        userElement.style.display = "none";
+        openPopupElement.style.display = "flex";
+    }
+    
+    islogin = false;
+    username = null;
+    usersurname = null;
+}
 
-var login = false;
-$(document).ready(function () {
-    $('#thai-lang').click(function () {
+function addName() {
+    let login = document.getElementById('lg');
+    let forget = document.getElementById('forget');
+    
+    if (!login || !forget) return;
+    
+    if (nxame) {
+        login.style.display = "flex";
+        forget.style.display = "block";
+        
+        let n = document.getElementById('input-name1');
+        let s = document.getElementById('input-surname1');
+        let s1 = document.getElementById('s1');
+        let s2 = document.getElementById('s2');
+        let sign = document.getElementById('sigh');
+        
+        if (n) n.remove();
+        if (s) s.remove();
+        if (s1) s1.remove();
+        if (s2) s2.remove();
+        if (sign) sign.remove();
+        
+        nxame = false;
+    } else {
+        forget.style.display = "none";
+        login.style.display = "none";
+        
+        let input = document.getElementById('input');
+        if (input) {
+            input.innerHTML += `
+                <div id="s1" class="sizebox" style="height: 20px;"></div>
+                <div id="input-name1" class="input">
+                    <div class="r">
+                        <input id="input-name" type="text" placeholder="Name">
+                    </div>
+                    <div class="l">
+                        <i class="fa-regular fa-user" style="color: rgba(0, 0, 0, 0.15); font-size: 24px;"></i>
+                    </div>
+                </div>
+                <div id="s2" class="sizebox" style="height: 20px;"></div>
+                <div id="input-surname1" class="input">
+                    <div class="r">
+                        <input id="input-surname" type="text" placeholder="Surname">
+                    </div>
+                    <div class="l">
+                        <i class="fa-regular fa-user" style="color: rgba(0, 0, 0, 0.15); font-size: 24px;"></i>
+                    </div>
+                </div>
+                <div id="sigh" class="loginbth" onclick="addUser()">Sign in</div>
+            `;
+        }
+        
+        nxame = true;
+    }
+}
+
+// Event listeners
+$(document).ready(function() {
+    // Initialize database
+    initializeDatabase();
+    
+    // Language switchers
+    $('#thai-lang').click(function() {
         $('#thai-lang').addClass('active');
         $('#eng-lang').removeClass('active');
         updateLanguage('thai');
     });
 
-    $('#eng-lang').click(function () {
+    $('#eng-lang').click(function() {
         $('#eng-lang').addClass('active');
         $('#thai-lang').removeClass('active');
         updateLanguage('english');
     });
 
+    // Movie tab switchers
     const upcomingBtn = document.getElementById('upcomingBtn');
     const comingSoonBtn = document.getElementById('comingSoonBtn');
 
-    upcomingBtn.addEventListener('click', function () {
-        document.getElementById('upcomingGrid').classList.remove('hidden');
-        document.getElementById('comingSoonGrid').classList.add('hidden');
-        upcomingBtn.classList.add('active');
-        comingSoonBtn.classList.remove('active');
-    });
+    if (upcomingBtn && comingSoonBtn) {
+        upcomingBtn.addEventListener('click', function() {
+            document.getElementById('upcomingGrid').classList.remove('hidden');
+            document.getElementById('comingSoonGrid').classList.add('hidden');
+            upcomingBtn.classList.add('active');
+            comingSoonBtn.classList.remove('active');
+        });
 
-    comingSoonBtn.addEventListener('click', function () {
-        document.getElementById('upcomingGrid').classList.add('hidden');
-        document.getElementById('comingSoonGrid').classList.remove('hidden');
-        upcomingBtn.classList.remove('active');
-        comingSoonBtn.classList.add('active');
-    });
+        comingSoonBtn.addEventListener('click', function() {
+            document.getElementById('upcomingGrid').classList.add('hidden');
+            document.getElementById('comingSoonGrid').classList.remove('hidden');
+            upcomingBtn.classList.remove('active');
+            comingSoonBtn.classList.add('active');
+        });
+    }
 
     // Page navigation
-    $('.nav-item').click(function () {
+    $('.nav-item').click(function() {
         const pageId = $(this).data('page');
 
         // Hide all pages
@@ -953,7 +1618,6 @@ $(document).ready(function () {
     });
 
     // Carousel setup
-
     $('.title-c').slick({
         infinite: true,
         speed: 800,
@@ -982,6 +1646,7 @@ $(document).ready(function () {
         cssEase: 'linear',
         dots: true
     });
+    
     $('.seats').slick({
         infinite: true,
         slidesToShow: 5,
@@ -1001,6 +1666,7 @@ $(document).ready(function () {
         fade: true,
         cssEase: 'linear',
     });
+    
     $('.bowlignslick').slick({
         infinite: true,
         speed: 800,
@@ -1010,157 +1676,108 @@ $(document).ready(function () {
         dots: true,
         cssEase: 'linear',
     });
-    $('.insideblur').on('afterChange', function (event, slick, currentSlide) {
+    
+    let autoPlayedOnce = false; // Flag to track autoplay
+
+    $('.date-selector').slick({
+        speed: 800,
+        arrows: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        focusOnSelect: true,
+        centerPadding: '0',
+        autoplay: true,
+        autoplaySpeed: 1500, // Let it pause briefly before first slide
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        infinite: false
+    });
+    
+    // Stop autoplay after first movement
+    $('.date-selector').on('afterChange', function(event, slick, currentSlide) {
+        if (!autoPlayedOnce) {
+            autoPlayedOnce = true;
+            $(this).slick('slickPause');
+        }
+    });
+    
+    // Trigger setPosition in case there's a layout shift on load
+    $(window).on('load', function() {
+        setTimeout(function() {
+            $('.date-selector').slick('setPosition');
+        }, 100);
+    });
+    
+    $('.insideblur').on('afterChange', function(event, slick, currentSlide) {
         const newImage = promotion[currentSlide].image;
         let blur_promo = document.getElementById('blur-promotion');
-        blur_promo.style.backgroundImage = `url("${newImage}")`;
+        if (blur_promo) {
+            blur_promo.style.backgroundImage = `url("${newImage}")`;
+        }
     });
 
     // Update blurred background when slide changes
-    $('.title-c').on('afterChange', function (event, slick, currentSlide) {
+    $('.title-c').on('afterChange', function(event, slick, currentSlide) {
         $(".blur-bg").css("background-image", `url(${hori_img[currentSlide]})`);
     });
 
     // Set initial background image
     $(".blur-bg").css("background-image", `url(${hori_img[0]})`);
 
-    // Initialize language and movie grids
-    updateLanguage('thai');
-    createSystem_Therter("system")
-});
+    // Date selector click event
+    $('.date-selector').on('click', '.item', function() {
+        if ($(this).hasClass('slick-cloned')) return; // Ignore clones
 
+        // Reset the color of all items
+        $('.date-selector .item').css('color', 'grey');
+        
+        // Change the clicked item's color to blue
+        $(this).css('color', 'blue');
+    });
 
+    // Popup handling
+    const openBtn = document.getElementById("openPopup");
+    const closeBtn = document.getElementById("closePopup");
+    const popup = document.getElementById("popup");
 
+    if (openBtn && closeBtn && popup) {
+        openBtn.addEventListener("click", () => {
+            popup.style.display = "flex";
+        });
 
+        closeBtn.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
 
+        // Close popup if user clicks outside content
+        popup.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+    }
 
-
-
-
-
-////////////////////////////////////////////////////////////////
-// Open (or create) the database
-let db;
-let username;
-let usersurname;
-const request = indexedDB.open('myDatabase', 1); // Database name and version
-
-// Handle errors when opening the database
-request.onerror = function (event) {
-    console.error('Database error: ' + event.target.errorCode);
-};
-
-// When the database is successfully opened
-request.onsuccess = function (event) {
-    db = event.target.result;
-    console.log('Database opened successfully');
-};
-
-// Create object store and indexes when upgrading the database (version 1 -> version 2)
-request.onupgradeneeded = function (event) {
-    const db = event.target.result;
-
-    // Create object store with 'id' as the primary key and auto-increment enabled
-    const objectStore = db.createObjectStore("users", { keyPath: "id", autoIncrement: true });
-
-    // Create indexes for 'email', 'name', and 'surname'
-    objectStore.createIndex("email", "email", { unique: true });
-    objectStore.createIndex("name", "name", { unique: false });
-    objectStore.createIndex("surname", "surname", { unique: false });
-    objectStore.createIndex("password", "password", { unique: false });
-
-    console.log('Object store and indexes created');
-};
-
-// Function to add a user to the IndexedDB database
-function addUser() {
-    // Start a transaction with read/write access to the 'users' object store
-    const transaction = db.transaction(["users"], "readwrite");
-    const objectStore = transaction.objectStore("users");
-
-    // Get input values from the user form
-    let email = document.getElementById("input-email").value;
-    let password = document.getElementById("input-password").value;
-    let name = document.getElementById("input-name").value;
-    let surname = document.getElementById("input-surname").value;
-
-    // Create a user object to store in the database
-    const user = {
-        email: email,
-        password: password,
-        name: name,
-        surname: surname
-    };
-
-    // Add the user to the object store
-    const request = objectStore.add(user);
-
-    // Handle success
-    request.onsuccess = function () {
-        console.log("User added successfully:", user);
-        alert("User added successfully!");
-    };
-
-    // Handle error
-    request.onerror = function (event) {
-        console.error("Error adding user:", event.target.error);
-        alert("Error adding user.");
-    };
-}
-
-// Function to check if the email and password exist in the database
-function checkUserEmailAndPassword() {
-    // Open the database
-    const request = indexedDB.open('myDatabase', 1);
-
-    request.onsuccess = function (event) {
-        const db = event.target.result;
-        const transaction = db.transaction(["users"], "readonly");
-        const objectStore = transaction.objectStore("users");
-
-        let email = document.getElementById("input-email").value;
-        let password = document.getElementById("input-password").value;
-
-        // Query the email index to check if the email exists
-        const emailIndex = objectStore.index("email");
-        const getEmailRequest = emailIndex.get(email);
-
-        getEmailRequest.onsuccess = function () {
-            if (getEmailRequest.result) {
-                // Email exists, now check if the password matches
-                if (getEmailRequest.result.password === password) {
-                    islogin = true; // Assuming you have a variable for login state
-                    document.getElementById('popup').style.display = 'none';
-                    console.log("User authenticated successfully.");
-                    document.getElementById('openPopup').style.display = "none"
-                    document.getElementById('user').style.display = "flex"
-                    username = getEmailRequest.result.name
-                    usersurname = getEmailRequest.result.surname
-                    document.getElementById('user').innerHTML = username + " " + usersurname
-                    document.getElementById('name').innerHTML = "Hello, " + username + " " + usersurname
-                    document.getElementById("input-email").value = "";
-                    document.getElementById("input-password").value = "";
-                    alert("Login successful!");
-                    return true; // Email and password match
-                } else {
-                    console.log("Incorrect password.");
-                    alert("Incorrect password. Please try again.");
-                    return false; // Password does not match
+    // Seat booking event listeners
+    const continueBtn = document.querySelector('.continue-btn');
+    if (continueBtn) {
+        continueBtn.addEventListener('click', function() {
+            if (selectedSeats.length > 0) {
+                const confirmBooking = confirm(`You selected seats: ${selectedSeats.map(seat => seat.id).join(', ')} for a total of ${totalPrice} THB. Confirm booking?`);
+                
+                if (confirmBooking) {
+                    saveBooking();
                 }
             } else {
-                console.log("Email does not exist.");
-                alert("Email does not exist.");
-                return false; // Email does not exist in the database
+                alert('Please select at least one seat to continue');
             }
-        };
-
-        getEmailRequest.onerror = function (event) {
-            console.error("Error retrieving user by email:", event.target.error);
-            return false; // Error occurred while trying to fetch the email
-        };
-    };
-
-    request.onerror = function (event) {
-        console.error("Error opening database:", event.target.error);
-    };
-}
+        });
+    }
+    
+    const discountBtn = document.querySelector('.discount-btn');
+    if (discountBtn) {
+        discountBtn.addEventListener('click', function() {
+            alert('Discount options will be shown here');
+        });
+    }
+});
