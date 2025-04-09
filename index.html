@@ -2,83 +2,665 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Popup Example</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="asset/horizontal/jumanji.jpg" as="image">
+    <link rel="preload" href="asset/horizontal/snowwhite.jpg" as="image">
+    <link rel="preload" href="asset/vertical/lastnightinsolo.jpg" as="image">
+    <link rel="preload" href="asset/vertical/parallel.jpg" as="image">
+    <link rel="preload" href="asset/SFCinima.jpg" as="image">
+    <link rel="preload" href="asset/SFCinima2.jpg" as="image">
+    <link rel="preload" href="asset/SFCinima3.jpg" as="image">
+    <link rel="preload" href="asset/SFCinima4.jpg" as="image">
 
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: none;
-      /* hidden by default */
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .popup-content {
-      background: white;
-      padding: 20px;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 10px;
-      position: relative;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .close {
-      position: absolute;
-      top: 8px;
-      right: 16px;
-      font-size: 24px;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body>
-  <button id="openPopup">View Movie Detail</button>
+    <!-- Header Section -->
+    <div class="topnav">
+        <div class="language">
+            <span id="thai-lang" class="active">Thai</span>
+            <span id="eng-lang">Eng</span>
+        </div>
+        <img src="asset/sf/sf.svg" alt="sflogo" width="75px">
+        <div id="openPopup" class="signin">
+            <i class="fa-regular fa-envelope"></i>
+            <i class="fa-regular fa-user"></i>
+            <p class="lang-signin">Sign in / Log in</p>
+        </div>
+        <div id="user" class="signin" onclick="goProfile()" style="display: none;" >
 
-  <div id="popup" class="popup-overlay">
-    <div class="popup-content">
-      <span id="closePopup" class="close">&times;</span>
-      <img src="asset/news/1.jpg" alt="Movie Poster" style="width:100%; border-radius: 8px;">
-      <h2>New Movies หนังใหม่สัปดาห์นี้ # 3 เมษายน 2568</h2>
-      <p>ภาพยนตร์เข้าฉายตั้งแต่วันที่ 3 เมษายน 2568 เป็นต้นไป</p>
+        </div>
     </div>
-  </div>
+    <div class="botbnav">
+        <ul>
+            <li data-page="home" class="nav-item active">
+                <span>HOME</span>
+            </li>
+            <li data-page="movie" class="nav-item">
+                <span>MOVIE</span>
+            </li>
+            <li data-page="cinemas" class="nav-item">
+                <span>CINEMAS</span>
+            </li>
+            <li data-page="promotions" class="nav-item">
+                <span>PROMOTIONS</span>
+            </li>
+            <li data-page="bowling" class="nav-item">
+                <span>BOWLING & MUSIC</span>
+            </li>
+            <li data-page="news" class="nav-item">
+                <span>NEWS & ACTIVITIES</span>
+            </li>
+            <li data-page="festival" class="nav-item">
+                <span>FILM FESTIVAL</span>
+            </li>
+            <li data-page="sfplus" class="nav-item">
+                <span>SF+</span>
+            </li>
+            <li data-page="privacy" class="nav-item">
+                <span>PRIVACY POLICY</span>
+            </li>
+        </ul>
+    </div>
 
-  <script>
-    const openBtn = document.getElementById("openPopup");
-    const closeBtn = document.getElementById("closePopup");
-    const popup = document.getElementById("popup");
+    <!-- Home Page Content -->
+    <div id="home-page" class="page-content active">
+        <!-- Carousel Section -->
+        <div class="select_advertise">
+            <div class="blur-bg"></div>
+            <div class="title-c">
+                <img src="asset/horizontal/jumanji.jpg" alt="Jumanji">
+                <img src="asset/horizontal/snowwhite.jpg" alt="Snow White">
+            </div>
+        </div>
+        <div class="selectmovie">
+            จองหนังกันไอสัส
+        </div>
+        <div class="sizebox"></div>
+        <div class="movieheader">
+            <h1 class="lang-movie-title">Movie</h1>
+        </div>
+        <div class="showandupcoming">
+            <ul>
+                <button id="upcomingBtn" class="active lang-upcoming">Upcoming</button>
+                <button id="comingSoonBtn" class="lang-coming-soon">Coming Soon</button>
+            </ul>
+        </div>
+        <hr>
 
-    openBtn.addEventListener("click", () => {
-      popup.style.display = "flex";
-    });
+        <!-- Main Grid Layout -->
+        <div class="bigmoviegrid">
+            <!-- Left Column: Small Movie Grid - Upcoming Movies -->
+            <div class="smallmoviegrid" id="upcomingGrid">
+                <!-- Upcoming movies will be inserted here by JavaScript -->
+            </div>
 
-    closeBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
+            <!-- Left Column: Small Movie Grid - Coming Soon Movies (initially hidden) -->
+            <div class="smallmoviegrid hidden" id="comingSoonGrid">
+                <!-- Coming soon movies will be inserted here by JavaScript -->
+            </div>
 
-    // Optional: close popup if user clicks outside content
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) {
-        popup.style.display = "none";
-      }
-    });
+            <!-- Right Column: Side Container -->
+            <div class="side-container">
+                <div class="sideadvertise">
+                    <p class="lang-recommend">Recommend Movie</p>
+                    <hr>
+                    <div class="vertical-carousel">
+                        <img src="asset/vertical/parallel.jpg" alt="Parallel">
+                        <img src="asset/vertical/lastnightinsolo.jpg" alt="Last Night in Solo">
+                    </div>
+                </div>
+                <div class="boxoffice">
+                    <hr>
+                    <p class="lang-boxoffice">Box Office</p>
+                    <div class="sfus">
+                        <p class="lang-sf-boxoffice">SF Box Office</p>
+                        <p>|</p>
+                        <p class="lang-us-boxoffice">US Box Office</p>
+                    </div>
+                    <div class="rec-movie">
+                        <div class="tag">1</div>
+                        <img src="asset/vertical/parallel.jpg" alt="">
+                        <p>Parallel</p>
+                    </div>
+                    <div class="rec-movie">
+                        <div class="tag">2</div>
+                        <img src="asset/vertical/parallel.jpg" alt="">
+                        <p>Parallel</p>
+                    </div>
+                    <div class="rec-movie">
+                        <div class="tag">3</div>
+                        <img src="asset/vertical/parallel.jpg" alt="">
+                        <p>Parallel</p>
+                    </div>
+                    <div class="rec-movie">
+                        <div class="tag">4</div>
+                        <img src="asset/vertical/parallel.jpg" alt="">
+                        <p>Parallel</p>
+                    </div>
+                    <div class="rec-movie">
+                        <div class="tag">5</div>
+                        <img src="asset/vertical/parallel.jpg" alt="">
+                        <p>Parallel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  </script>
+        <div class="logoadvertise">
+            <img src="asset/botpic.png" alt="botpic" width="50%" height="100%">
+        </div>
+    </div>
+
+    <!-- Movie Page (Placeholder) -->
+    <div id="movie-page" class="page-content movie">
+        <h1>Now showing</h1>
+        <div id="movie-grid" class="movie-grid">
+        </div>
+        <hr>
+        <div class="logo-display">
+            <ul>
+                <li><img src="asset/sf/emp.png" alt="emp"></li>
+                <li><img src="asset/sf/sfw.png" alt="emp"></li>
+                <li><img src="asset/sf/sfx.png" alt="emp"></li>
+                <li><img src="asset/sf/sfo.png" alt="emp"></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cinemas Page (Placeholder) -->
+    <div id="cinemas-page" class="page-content cinema">
+        <div class="outside">
+            <img src="asset/SFCinima.jpg" alt="SF Cinema">
+            <div class="inside" style="left: 42.5%;">
+                <h1>SF CINEMA</h1>
+
+                <a href="#brandq">
+                    <p>Discover</p>
+                </a>
+                <a href="#brandq">
+                    <i class="fa-regular fa-compass moving-icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class="stickynav">
+            <ul>
+                <li><a href="#brandq">Brand</a></li>
+                <li>•</li>
+                <li><a href="#system">System</a></li>
+                <li>•</li>
+                <li><a href="#seats">Seat Type</a></li>
+                <li>•</li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </div>
+        <div class="big-container">
+            <div class="small-container1">
+                <div class="item"><img src="asset/sf/emp.png" alt="emp"></div>
+                <div class="item"><img src="asset/sf/sfw.png" alt="emp"></div>
+                <div class="item"><img src="asset/sf/sfx.png" alt="emp"></div>
+                <div class="item"><img src="asset/sf/sfo.png" alt="emp"></div>
+                <div class="inside">
+                    <h1 id="brandq">Brand</h1>
+                </div>
+            </div>
+            <div style="padding: 0px 100px;">
+                <div class="small-container2">
+                    <img src="asset/SFCinima2.jpg" height="50%" width="50%-" alt="sfcinime">
+                    <div class="text">
+                        <div>
+                            <h1>THE BEST CINEMA EXPERIENCE</h1>
+                        </div>
+                        <h5>เราคือผู้มอบประสบการณ์บันเทิงที่มุ่งเน้นความเป็นเลิศ
+                            ด้วยการใส่ใจทุกรายละเอียดตั้งแต่ก้าวแรกจนก้าวสุดท้าย
+                            พร้อมคัดสรรภาพยนตร์ชั้นเยี่ยมและแปลกใหม่
+                            อีกทั้งมุ่งเฟ้นหานวัตกรรมบันเทิงสุดพิเศษ และเหนืออื่นใดคือการพัฒนางานด้านบริการให้ดีที่สุด
+                            เพื่อให้มั่นใจว่าทุกช่วงเวลาของคุณที่ เอส เอฟ จะมีแต่ความประทับใจ และความสุขอย่างแท้จริง
+                        </h5>
+                    </div>
+                </div>
+                <div class="st">
+                    <ul>
+                        <li><button id="system" onclick="createSystem_Therter('system')">System</button></li>
+                        <li><button onclick="createSystem_Therter('thether')">Thether</button></li>
+                    </ul>
+                </div>
+                <div id="st-display" class="small-container2">
+
+                </div>
+            </div>
+            <div class="skewcontent"></div>
+            <div id="curo" class="curo">
+                <img src="asset/SFCinima2.jpg">
+                <img src="asset/SFCinima3.jpg">
+                <img src="asset/SFCinima4.jpg">
+            </div>
+            <div id="seats" class="heading">
+                Seat type
+            </div>
+            <div style="padding: 0px 150px; overflow: visible;">
+                <div class="seats">
+                    <div class="item">MX4D
+                        <div class="inside"><img src="asset/seat/MX4D_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Executive Seat
+                        <div class="inside"><img src="asset/seat/Executive_S.png" alt=""></div>
+                    </div>
+                    <div class="item">VIP Seat
+                        <div class="inside"><img src="asset/seat/VIP_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Sun Bench
+                        <div class="inside"><img src="asset/seat/SunBench_S.png" alt=""></div>
+                    </div>
+                    <div class="item">First Class (Private Box)
+                        <div class="inside"><img src="asset/seat/FirstClass(Private)_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Deluxe Seat
+                        <div class="inside"><img src="asset/seat/Duluxe_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Premium Seat
+                        <div class="inside"><img src="asset/seat/Premium_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Bean Bag
+                        <div class="inside"><img src="asset/seat/Bean_S.png" alt=""></div>
+                    </div>
+                    <div class="item">First Class
+                        <div class="inside"><img src="asset/seat/FirstClass_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Sofa Sweet
+                        <div class="inside"><img src="asset/seat/SofaSweet_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Day Bed
+                        <div class="inside"><img src="asset/seat/DayBed_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Executive Suite
+                        <div class="inside"><img src="asset/seat/ExecutiveSuite_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Moon Bed
+                        <div class="inside"><img src="asset/seat/MoonBed_S.png" alt=""></div>
+                    </div>
+                    <div class="item">First Class
+                        <div class="inside"><img src="asset/seat/FirstClass_1S.png" alt=""></div>
+                    </div>
+                    <div class="item">Suite
+                        <div class="inside"><img src="asset/seat/Suite_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Prime Seat
+                        <div class="inside"><img src="asset/seat/Prime_S.png" alt=""></div>
+                    </div>
+                    <div class="item">Queen Bed
+                        <div class="inside"><img src="asset/seat/QueenBed_S.png" alt=""></div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="locaction" class="heading">Location</div>
+            <div class="option">
+                <h1></h1>
+                <h2>Bangkok And Metropolitan Region</h2>
+                <i class="fa-solid fa-arrow-up" style="font-size: 24px;"></i>
+            </div>
+            <hr class="customhr">
+            <div class="option">
+                <h1></h1>
+                <h2>Central Region</h2>
+                <i class="fa-solid fa-arrow-up" style="font-size: 24px;"></i>
+            </div>
+            <hr class="customhr">
+            <div class="option">
+                <h1></h1>
+                <h2>Northern Region</h2>
+                <i class="fa-solid fa-arrow-up" style="font-size: 24px;"></i>
+            </div>
+            <hr class="customhr">
+            <div class="option">
+                <h1></h1>
+                <h2>Northeastern Region</h2>
+                <i class="fa-solid fa-arrow-up" style="font-size: 24px;"></i>
+            </div>
+            <hr class="customhr">
+            <div class="option">
+                <h1></h1>
+                <h2>Eastern Region</h2>
+                <i class="fa-solid fa-arrow-up" style="font-size: 24px;"></i>
+            </div>
+            <hr class="customhr">
+            <div class="option">
+                <h1></h1>
+                <h2>Southern Region</h2>
+                <i class="fa-solid fa-arrow-up" style="font-size: 24px;"></i>
+            </div>
+            <hr class="customhr">
+            <hr style="margin-top: 100px;">
+            <div class="botimage">
+                <ul>
+                    <li><img src="asset/sf/emp.png" alt=""></li>
+                    <li><img src="asset/sf/sfw.png" alt=""></li>
+                    <li><img src="asset/sf/sfx.png" alt=""></li>
+                    <li><img src="asset/sf/sfo.png" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Promotions Page (Placeholder) -->
+    <div id="promotions-page" class="page-content">
+        <div style="overflow: hidden;">
+            <div id="blur-promotion" class="blur-promotion" style="height: 650px;">
+            </div>
+            <div class="insideblur">
+                <img src="asset/promotion/promo1.jpg" alt="">
+                <img src="asset/promotion/promo2.jpg" alt="">
+            </div>
+        </div>
+        <div class="heading" style="margin-top: 50px;">Special Promotion</div>
+        <div class="mininav">
+            <ul>
+                <li><button onclick="changeTab('brand')">Brand</button></li>
+                <li><button onclick="changeTab('all')">All</button></li>
+                <li><button onclick="changeTab('movie')">Movie</button></li>
+                <li><button onclick="changeTab('sf')">SF+</button></li>
+                <li><button onclick="changeTab('food')">Food & Beverage</button></li>
+                <li><button onclick="changeTab('bank')">Bank</button></li>
+                <li><button onclick="changeTab('branch')">Branch</button></li>
+                <li><button onclick="changeTab('other')">Other</button></li>
+            </ul>
+        </div>
+        <hr>
+        <div class="center">
+            <div id="brand" class="tabcontent">
+                <!-- Brand content goes here -->
+                <div class="center">
+                    <div id="brand-items" class="brand-tab">
+
+                    </div>
+                </div>
+            </div>
+            <div id="all" class="tabcontent">
+                <!-- All content goes here -->
+                <div class="center">
+                    <div id="all-item" class="all-tab">
+                    </div>
+                </div>
+            </div>
+            <div id="movie" class="tabcontent">
+                <!-- Movie content goes here -->
+                Movie Content
+            </div>
+            <div id="sf" class="tabcontent">
+                <!-- SF+ content goes here -->
+                SF+ Content
+            </div>
+            <div id="food" class="tabcontent">
+                <!-- Food & Beverage content goes here -->
+                Food & Beverage Content
+            </div>
+            <div id="bank" class="tabcontent">
+                <!-- Bank content goes here -->
+                Bank Content
+            </div>
+            <div id="branch" class="tabcontent">
+                <!-- Branch content goes here -->
+                Branch Content
+            </div>
+            <div id="other" class="tabcontent">
+                <!-- Other content goes here -->
+                Other Content
+            </div>
+        </div>
+
+        <div class="botimage">
+            <ul>
+                <li><img src="asset/sf/emp.png" alt=""></li>
+                <li><img src="asset/sf/sfw.png" alt=""></li>
+                <li><img src="asset/sf/sfx.png" alt=""></li>
+                <li><img src="asset/sf/sfo.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bowling & Music Page (Placeholder) -->
+    <div id="bowling-page" class="page-content">
+        <div class="outside">
+            <img src="asset/background/bowling.jpg" alt="SF Cinema">
+            <div class="inside">
+                <h1>Bowling</h1>
+
+                <a href="#brandq">
+                    <p>Discover</p>
+                </a>
+                <a href="#brandq">
+                    <i class="fa-regular fa-compass moving-icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class="stickynav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li>•</li>
+                <li><a href="#galary">Galary</a></li>
+                <li>•</li>
+                <li><a href="#loca">Location</a></li>
+                <li>•</li>
+                <li><a href="#promotion">Promotion</a></li>
+            </ul>
+        </div>
+        <div class="big">
+            <div class="small1">
+                <img src="asset/background/bowling-about.jpg" alt="">
+            </div>
+            <div class="small2"></div>
+            <div class="small3">
+                <h2 id="about">About</h2>
+                <hr class="customhr"
+                    style="width: 20%; justify-self: start; height: 2px; background-color: white; border: none;">
+                <h3>Bowl like you've never bowled before at the new "Bowl Bar",<br>
+                    where old is out, and new is in. It's fun like you'ver never <br>
+                    experience before!
+                </h3>
+            </div>
+        </div>
+        <div id="galary" class="bowlignslick">
+            <img src="asset/background/bowlingslick.jpg" alt="">
+            <img src="asset/background/bowlingslick2.jpg" alt="">
+        </div>
+        <div class="locationbox">
+            <h1 id="loca">Location</h1>
+            <h3>SF Strike Bowl Central Pattaya Beach</h3>
+            <h3>Tel: 033-003-600</h3>
+        </div>
+        <h1 id="promotion" style="margin-left: 50px;margin-top: 30px; font-size: 40px;">Promotion</h1>
+        <hr style="margin-top: 100px;">
+        <div class="botimage">
+            <ul>
+                <li><img src="asset/sf/emp.png" alt=""></li>
+                <li><img src="asset/sf/sfw.png" alt=""></li>
+                <li><img src="asset/sf/sfx.png" alt=""></li>
+                <li><img src="asset/sf/sfo.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- News & Activities Page (Placeholder) -->
+    <div id="news-page" class="page-content">
+        <div class="heading">News & Activities</div>
+        <div class="mininav">
+            <ul>
+                <li><button onclick="changeTab2('allc')">All</button></li>
+                <li><button onclick="changeTab2('acc')">News & Activities</button></li>
+                <li><button onclick="changeTab2('moviee')">Movie News</button></li>
+                <li><button onclick="changeTab2('csr')">CSR News</button></li>
+            </ul>
+        </div>
+        <div id="allc" class="content">
+            <div id="ally" class="ally">
+
+
+            </div>
+        </div>
+        <div id="acc" class="content">
+            <!-- Bank content goes here -->
+            acc Content
+        </div>
+        <div id="moviee" class="content">
+            <!-- Branch content goes here -->
+            movie Content
+        </div>
+        <div id="csr" class="content">
+            <!-- Other content goes here -->
+            csr Content
+        </div>
+    </div>
+
+    <!-- Film Festival Page (Placeholder) -->
+    <div id="festival-page" class="page-content">
+
+    </div>
+
+    <!-- SF+ Page (Placeholder) -->
+    <div id="sfplus-page" class="page-content">
+
+    </div>
+
+    <!-- Privacy Policy Page (Placeholder) -->
+    <div id="privacy-page" class="page-content">
+
+    </div>
+
+    <div id="profile-page" class="page-content">
+        <div class="profile-layout">
+            <div class="l">
+                <div class="profile">
+                </div>
+                <ul>
+                    <li><button onclick="changeTab3('booking')">Booking History</button></li>
+                    <li><button onclick="changeTab3('profile')">Profile</button></li>
+                    <li><button onclick="changeTab3('coupon')">Coupon</button></li>
+                </ul>
+                <button onclick="lockout()">
+                    <div data-page="home" class="logout nav-item">Log out</div>
+                </button>
+            </div>
+            <div class="r">
+                <h1 id="name">Hello</h1>
+                <div id="booking" class="profile-tab">Booking history
+                    <div id="history-booking">You don't have any booking</div>
+                </div>
+                <div id="profile" class="profile-tab">b</div>
+                <div id="coupon" class="profile-tab">c</div>
+            </div>
+        </div>
+        <div class="botimage">
+            <ul>
+                <li><img src="asset/sf/emp.png" alt=""></li>
+                <li><img src="asset/sf/sfw.png" alt=""></li>
+                <li><img src="asset/sf/sfx.png" alt=""></li>
+                <li><img src="asset/sf/sfo.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <div id="ticket-page" class="page-content">
+        Ticket
+        <div id="whatmovie" class="whatmovie">
+
+        </div>
+    </div>
+    <div class="footer">
+        <div class="wrap" style="margin-bottom: 45px;">
+            <ul>
+                <li>About SF</li>
+                <li>Branches </li>
+                <li>System Types</li>
+                <li>How to Buy</li>
+                <li>Work With Us</li>
+                <li>Contact Us</li>
+                <li>Group Booking</li>
+                <li> Privacy Policy</li>    
+
+            </ul>
+            <p>SF Smart Call: 1349 </p>
+        </div>
+        <div class="wrap">
+            <ul>
+                <li style="color: grey;">Copyright © 2025 SF Group. All rights reserved.</li>
+                <li><img src="asset/dbd.png" alt="dbd" width="50%"></li>
+
+            </ul>
+            <div style="display: flex; gap: 25px;">
+                <i class="fab fa-facebook-f" style="font-size:24px"></i>
+                <i class="fa-brands fa-twitter" style="font-size:24px"></i>
+                <i class="fa-brands fa-instagram" style="font-size:24px"></i>
+                <i class="fa-brands fa-youtube" style="font-size:24px"></i>
+                <i class="fa-brands fa-line" style="font-size:24px"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <img src="asset/sf/sf.svg" alt="" height="30px">
+            <div class="center2">
+                <div class="loginfacebook">
+                    <i class="fab fa-facebook-f" style="font-size:20px; color: white;"></i>
+                    <p>Login withFacebook</p>
+                    <p></p>
+                </div>
+
+                <div class="or">
+                    <div class="inside">Or</div>
+                    <hr class="customhr" style="margin: 0px;">
+                </div>
+                <div id="input"
+                    style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div class="input">
+                        <div class="r"><input id="input-email" type="text" placeholder="Email"></div>
+                        <div class="l"> <i class="fa-regular fa-envelope"
+                                style="color: rgba(0, 0, 0, 0.15); font-size: 24px;"></i>
+                        </div>
+                    </div>
+                    <div class="sizebox" style="height: 20px;"></div>
+                    <div class="input">
+                        <div class="r"><input id="input-password" type="text" placeholder="Password"></div>
+                        <div class="l"> <i class="fa-solid fa-lock"
+                                style="color: rgba(0, 0, 0, 0.15); font-size: 24px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="forget" class="forget">
+                    <p>Forget Password?</p>
+                </div>
+                <div id="lg" data-page="profile" class="loginbth nav-item" onclick="checkUserEmailAndPassword()">Login
+                </div>
+
+            </div>
+        </div>
+        <div style="margin: 25px;"></div>
+        <div class="popup-content">
+            <div class="donthave">
+                <div>Don't have account</div>
+                <button onclick="addName()">
+                    <div class="signIn" style="width: 200px;">Sigh In</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="script.js"></script>
 
 </html>
