@@ -61,66 +61,66 @@ const translations = {
 const upcomingMovies = {
     thai: [
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/alex.png",
             releaseDate: "5 กรกฎาคม 2567",
-            title: "Phantom Menace",
-            genre: "Action / Sci-Fi",
+            title: "Alexander Road Trip",
+            genre: "Comedy",
             duration: 130
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/dogman.png",
             releaseDate: "12 กรกฎาคม 2567",
-            title: "Phantom Menace",
-            genre: "Action / Sci-Fi",
+            title: "Dogman",
+            genre: "Action / Cartoon",
             duration: 130
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/imposible.png",
             releaseDate: "19 กรกฎาคม 2567",
-            title: "Phantom Menace",
-            genre: "Action / Sci-Fi",
+            title: "Mission Impossible",
+            genre: "Action",
             duration: 130
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "2 สิงหาคม 2567",
-            title: "Phantom Menace",
-            genre: "Action / Sci-Fi",
+            title: "Last Night in Silo",
+            genre: "Sci-Fi / Horror",
             duration: 130
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/mc.png",
             releaseDate: "9 สิงหาคม 2567",
-            title: "Phantom Menace",
-            genre: "Action / Sci-Fi",
+            title: "Minecraft",
+            genre: "Kid / Adventure",
             duration: 130
         },
         {
             image: "asset/vertical/parallel.jpg",
             releaseDate: "16 สิงหาคม 2567",
-            title: "Phantom Menace",
+            title: "Parallel",
             genre: "Action / Sci-Fi",
             duration: 130
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/snowwhite.png",
             releaseDate: "23 สิงหาคม 2567",
-            title: "Starlight Serenade",
+            title: "Snow White",
             genre: "Romance / Drama",
             duration: 125
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/theday.png",
             releaseDate: "6 กันยายน 2567",
-            title: "Velvet Underground",
-            genre: "Music / Biography",
+            title: "The Day Earth Blew Up",
+            genre: "Kid / Cartoon",
             duration: 118
         },
         {
-            image: "asset/vertical/parallel.jpg",
+            image: "asset/vertical/vertical.png",
             releaseDate: "13 กันยายน 2567",
-            title: "Whispering Pines",
-            genre: "Mystery / Thriller",
+            title: "Vertical",
+            genre: "Thriller",
             duration: 110
         }
     ],
@@ -128,68 +128,69 @@ const upcomingMovies = {
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "April 15, 2024",
-            title: "The Girl in the Silo",
+            title: "The Girl in the Silo - The Full Movie",
             genre: "Mystery / Drama",
             duration: 112
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "April 22, 2024",
-            title: "Parallel Universe",
+            title: "Parallel Universe - The Full Movie",
             genre: "Sci-Fi / Adventure",
             duration: 127
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "May 1, 2024",
-            title: "Last Night in Solo",
+            title: "Last Night in Solo - The Full Movie",
             genre: "Thriller / Fantasy",
             duration: 118
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "May 10, 2024",
-            title: "The Forgotten Path",
+            title: "The Forgotten Path - The Full Movie",
             genre: "Drama / Mystery",
             duration: 121
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "May 17, 2024",
-            title: "Midnight Shadows",
+            title: "Midnight Shadows - The Full Movie",
             genre: "Horror / Suspense",
             duration: 109
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "May 24, 2024",
-            title: "Beyond the Horizon",
+            title: "Beyond the Horizon - The Full Movie",
             genre: "Adventure / Sci-Fi",
             duration: 132
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "June 1, 2024",
-            title: "Eternal Echo",
+            title: "Eternal Echo - The Full Movie",
             genre: "Fantasy / Romance",
             duration: 115
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "June 8, 2024",
-            title: "Silent Whispers",
+            title: "Silent Whispers - The Full Movie",
             genre: "Psychological / Thriller",
             duration: 106
         },
         {
             image: "asset/vertical/lastnightinsolo.jpg",
             releaseDate: "June 15, 2024",
-            title: "Crimson Tide",
+            title: "Crimson Tide - The Full Movie",
             genre: "Action / War",
             duration: 124
         }
     ]
 };
+
 
 const comingSoonMovies = {
     thai: [
@@ -709,14 +710,10 @@ let totalPrice = 0;
 let bookedSeats = [];
 let currentLanguage = 'thai';
 let nxame = false;
-
-// Movie details (can be passed from the previous page)
-const movieDetails = {
-    title: document.getElementById('movieTitle')?.textContent || "Liella! 6th Live Tokyo Round Day 2",
-    date: document.getElementById('eventDate')?.textContent || "20 April 2025",
-    time: document.getElementById('eventTime')?.textContent || "11:00",
-    location: document.getElementById('cinemaLocation')?.textContent || "SF CINEMA MBK Center"
-};
+let currentMovie = null; // Store the currently selected movie
+let currentCinema = null; // Store the currently selected cinema
+let currentTime = null; // Store the currently selected time
+let currentDate = null; // Store the currently selected date
 
 // Seat layout configuration
 const rows = [
@@ -733,19 +730,36 @@ const rows = [
 ];
 
 // Initialize page elements
-document.addEventListener('DOMContentLoaded', function() {
-    const b = document.getElementById("movie-grid");
-    if (b) {
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize movie grid
+    const movieGrid = document.getElementById("movie-grid");
+    if (movieGrid) {
         comingSoonMovies[currentLanguage].forEach(movie => {
-            b.innerHTML += createMovieItem(movie);
+            movieGrid.innerHTML += createMovieItem(movie);
+        });
+    }
+
+    // Initialize upcoming and coming soon grids
+    const upcomingGrid = document.getElementById('upcomingGrid');
+    const comingSoonGrid = document.getElementById('comingSoonGrid');
+
+    if (upcomingGrid) {
+        upcomingMovies[currentLanguage].forEach(movie => {
+            upcomingGrid.innerHTML += createMovieItem(movie);
+        });
+    }
+
+    if (comingSoonGrid) {
+        comingSoonMovies[currentLanguage].forEach(movie => {
+            comingSoonGrid.innerHTML += createMovieItem(movie);
         });
     }
 
     // Initialize date selector
-    let date = document.getElementById('date-selector');
-    if (date) {
+    const dateSelector = document.getElementById('date-selector');
+    if (dateSelector) {
         simpledate.forEach(item => {
-            $('.date-selector').append(createdate(item));
+            dateSelector.innerHTML += createdate(item);
         });
     }
 
@@ -788,20 +802,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize language and theater system
     updateLanguage('thai');
     createSystem_Therter("system");
+
+    // Initialize database
+    initializeDatabase();
+
+    // Add event listeners
+    setupEventListeners();
+
+    // Initialize slick carousels
+    initializeSlickCarousels();
 });
 
-// Database initialization - consolidated
-const initializeDatabase = () => {
+// Database initialization
+function initializeDatabase() {
     const request = indexedDB.open('myDatabase', 2);
 
-    request.onerror = function(event) {
+    request.onerror = function (event) {
         console.error('Database error:', event.target.errorCode);
     };
 
-    request.onsuccess = function(event) {
+    request.onsuccess = function (event) {
         db = event.target.result;
         console.log('Database opened successfully');
-        
+
         if (db.objectStoreNames.contains('bookings')) {
             loadBookedSeats();
             loadBookingHistory();
@@ -810,7 +833,7 @@ const initializeDatabase = () => {
         }
     };
 
-    request.onupgradeneeded = function(event) {
+    request.onupgradeneeded = function (event) {
         const db = event.target.result;
 
         // Create users store if it doesn't exist
@@ -821,7 +844,7 @@ const initializeDatabase = () => {
             objectStore.createIndex('surname', 'surname', { unique: false });
             objectStore.createIndex('password', 'password', { unique: false });
         }
-        
+
         // Create bookings store if it doesn't exist
         if (!db.objectStoreNames.contains('bookings')) {
             const bookingsStore = db.createObjectStore('bookings', { keyPath: 'id', autoIncrement: true });
@@ -829,21 +852,24 @@ const initializeDatabase = () => {
             bookingsStore.createIndex('movieTitle', 'movieTitle', { unique: false });
             bookingsStore.createIndex('date', 'date', { unique: false });
             bookingsStore.createIndex('seats', 'seats', { unique: false, multiEntry: true });
+            bookingsStore.createIndex('movieImage', 'movieImage', { unique: false }); // Add image for display
+            bookingsStore.createIndex('movieGenre', 'movieGenre', { unique: false }); // Add genre for display
+            bookingsStore.createIndex('movieDuration', 'movieDuration', { unique: false }); // Add duration for display
         }
 
         console.log('Object stores and indexes created');
     };
-};
+}
 
 // Function to upgrade database if needed
 function upgradeDatabase() {
     const version = db.version + 1;
     db.close();
     const upgradeRequest = indexedDB.open('myDatabase', version);
-    
-    upgradeRequest.onupgradeneeded = function(event) {
+
+    upgradeRequest.onupgradeneeded = function (event) {
         const db = event.target.result;
-        
+
         // Create bookings store if it doesn't exist
         if (!db.objectStoreNames.contains('bookings')) {
             const bookingsStore = db.createObjectStore('bookings', { keyPath: 'id', autoIncrement: true });
@@ -851,10 +877,13 @@ function upgradeDatabase() {
             bookingsStore.createIndex('movieTitle', 'movieTitle', { unique: false });
             bookingsStore.createIndex('date', 'date', { unique: false });
             bookingsStore.createIndex('seats', 'seats', { unique: false, multiEntry: true });
+            bookingsStore.createIndex('movieImage', 'movieImage', { unique: false }); // Add image for display
+            bookingsStore.createIndex('movieGenre', 'movieGenre', { unique: false }); // Add genre for display
+            bookingsStore.createIndex('movieDuration', 'movieDuration', { unique: false }); // Add duration for display
         }
     };
-    
-    upgradeRequest.onsuccess = function(event) {
+
+    upgradeRequest.onsuccess = function (event) {
         db = event.target.result;
         console.log('Database upgraded successfully');
         loadBookedSeats();
@@ -864,32 +893,37 @@ function upgradeDatabase() {
 
 // Function to load booked seats from IndexedDB
 function loadBookedSeats() {
-    if (!db) return;
-    
+    if (!db || !currentMovie) return;
+
     const transaction = db.transaction(['bookings'], 'readonly');
     const bookingsStore = transaction.objectStore('bookings');
     const movieIndex = bookingsStore.index('movieTitle');
-    
-    const movieQuery = movieIndex.getAll(movieDetails.title);
-    
-    movieQuery.onsuccess = function() {
+
+    const movieQuery = movieIndex.getAll(currentMovie.title);
+
+    movieQuery.onsuccess = function () {
         const bookings = movieQuery.result;
-        
+
         // Filter bookings for this specific date and extract all booked seats
         bookedSeats = [];
         bookings.forEach(booking => {
-            if (booking.date === movieDetails.date) {
+            // Get the currently selected date
+            const selectedDateElement = document.querySelector('.date-selector .item[style*="color: blue"]');
+            const selectedDateId = selectedDateElement ? selectedDateElement.getAttribute('data-date-id') : 'date-content-1';
+            const selectedDateObj = simpledate.find(d => d.page === selectedDateId);
+
+            if (booking.date === selectedDateObj?.date) {
                 booking.seats.forEach(seat => {
                     bookedSeats.push(seat);
                 });
             }
         });
-        
+
         // Generate seats after loading booked seats
         generateSeats();
     };
-    
-    movieQuery.onerror = function(event) {
+
+    movieQuery.onerror = function (event) {
         console.error('Error loading booked seats:', event.target.error);
         // Generate seats anyway, even if we couldn't load booked seats
         generateSeats();
@@ -899,99 +933,41 @@ function loadBookedSeats() {
 // Function to load booking history from IndexedDB
 function loadBookingHistory() {
     if (!db || !islogin) return;
-    
-    const transaction = db.transaction(['bookings'], 'readonly');
-    const bookingsStore = transaction.objectStore('bookings');
-    const userIndex = bookingsStore.index('userId');
-    
-    // Use the current user's name as the userId
-    const userId = username + ' ' + usersurname;
-    const userQuery = userIndex.getAll(userId);
-    
-    userQuery.onsuccess = function() {
-        const bookings = userQuery.result;
-        const bookingHistoryContainer = document.getElementById('bookingHistoryContainer');
-        const noBookingsMessage = document.getElementById('noBookingsMessage');
-        
-        if (bookingHistoryContainer && noBookingsMessage) {
-            if (bookings.length > 0) {
-                noBookingsMessage.style.display = 'none';
-                
-                // Clear existing history
-                while (bookingHistoryContainer.firstChild) {
-                    bookingHistoryContainer.removeChild(bookingHistoryContainer.firstChild);
-                }
-                
-                // Add each booking to the history
-                bookings.forEach(booking => {
-                    const bookingItem = document.createElement('div');
-                    bookingItem.className = 'booking-item';
-                    
-                    bookingItem.innerHTML = `
-                        <h3>${booking.movieTitle}</h3>
-                        <div class="booking-details">
-                            <span>Date:</span>
-                            <span>${booking.date}</span>
-                        </div>
-                        <div class="booking-details">
-                            <span>Time:</span>
-                            <span>${booking.time}</span>
-                        </div>
-                        <div class="booking-details">
-                            <span>Location:</span>
-                            <span>${booking.location}</span>
-                        </div>
-                        <div class="booking-details">
-                            <span>Seats:</span>
-                            <span>${booking.seats.join(', ')}</span>
-                        </div>
-                        <div class="booking-details">
-                            <span>Total:</span>
-                            <span>${booking.totalPrice} THB</span>
-                        </div>
-                    `;
-                    
-                    bookingHistoryContainer.appendChild(bookingItem);
-                });
-            } else {
-                noBookingsMessage.style.display = 'block';
-            }
-        }
-    };
-    
-    userQuery.onerror = function(event) {
-        console.error('Error loading booking history:', event.target.error);
-    };
-}
 
-// Function to update booking history in profile page
-function updateProfileBookingHistory() {
-    if (!db || !islogin) return;
-    
     const transaction = db.transaction(['bookings'], 'readonly');
     const bookingsStore = transaction.objectStore('bookings');
     const userIndex = bookingsStore.index('userId');
-    
+
     // Use the current user's name as the userId
     const userId = username + ' ' + usersurname;
     const userQuery = userIndex.getAll(userId);
-    
-    userQuery.onsuccess = function() {
+
+    userQuery.onsuccess = function () {
         const bookings = userQuery.result;
         const historyBookingElement = document.getElementById('history-booking');
-        
+
         if (historyBookingElement) {
             if (bookings.length > 0) {
                 // Clear existing history
                 historyBookingElement.innerHTML = '';
-                
+
                 // Add each booking to the history
                 bookings.forEach(booking => {
                     const bookingItem = document.createElement('div');
                     bookingItem.className = 'booking-item';
-                    
+
+                    // Enhanced booking history with movie image and more details
                     bookingItem.innerHTML = `
-                        <h3>${booking.movieTitle}</h3>
+                        <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                            <div style="width: 80px; height: 120px; overflow: hidden;">
+                                <img src="${booking.movieImage}" alt="${booking.movieTitle}" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="flex: 1;">
+                                <h3 style="color: #0066CC; margin-bottom: 10px;">${booking.movieTitle}</h3>
+                                <div style="color: #666; font-size: 14px; margin-bottom: 5px;">${booking.movieGenre}</div>
+                                <div style="color: #666; font-size: 14px; margin-bottom: 5px;">${booking.movieDuration} mins</div>
+                            </div>
+                        </div>
                         <div class="booking-details">
                             <span>Date:</span>
                             <span>${booking.date}</span>
@@ -1008,22 +984,22 @@ function updateProfileBookingHistory() {
                             <span>Seats:</span>
                             <span>${booking.seats.join(', ')}</span>
                         </div>
-                        <div class="booking-details">
+                        <div class="booking-details" style="margin-top: 10px; font-weight: bold; color: #0066CC;">
                             <span>Total:</span>
                             <span>${booking.totalPrice} THB</span>
                         </div>
                     `;
-                    
+
                     historyBookingElement.appendChild(bookingItem);
                 });
             } else {
-                historyBookingElement.innerHTML = "You don't have any booking";
+                historyBookingElement.innerHTML = '<div style="text-align: center; padding: 20px; color: #666;">You don\'t have any bookings yet</div>';
             }
         }
     };
-    
-    userQuery.onerror = function(event) {
-        console.error('Error loading booking history for profile:', event.target.error);
+
+    userQuery.onerror = function (event) {
+        console.error('Error loading booking history:', event.target.error);
     };
 }
 
@@ -1031,20 +1007,20 @@ function updateProfileBookingHistory() {
 function generateSeats() {
     const seatsContainer = document.getElementById('seatsContainer');
     if (!seatsContainer) return;
-    
+
     // Clear existing seats
     seatsContainer.innerHTML = '';
-    
+
     rows.forEach(row => {
         for (let i = 0; i < row.seats; i++) {
             const seatNumber = i + 1; // Start from 1 instead of 0
             const seatId = `${row.id}${seatNumber}`;
             const seat = document.createElement('div');
             seat.classList.add('seat');
-            
+
             // Create the seat icon
             const icon = document.createElement('i');
-            
+
             // Check if seat is already booked
             if (bookedSeats.includes(seatId)) {
                 seat.classList.add('booked');
@@ -1052,38 +1028,38 @@ function generateSeats() {
             } else {
                 icon.classList.add('fa-solid', 'fa-couch'); // Use couch for available seats
             }
-            
+
             seat.appendChild(icon);
-            
+
             // Add seat ID display
             const seatIdElement = document.createElement('div');
             seatIdElement.classList.add('seat-id');
             seatIdElement.textContent = seatId;
             seat.appendChild(seatIdElement);
-            
+
             // Set seat type based on row configuration
             seat.classList.add(row.type);
             seat.dataset.price = row.price;
             seat.dataset.id = seatId;
-            
+
             // Add click event for available seats
             if (!bookedSeats.includes(seatId)) {
-                seat.addEventListener('click', function() {
+                seat.addEventListener('click', function () {
                     const seatId = this.dataset.id;
                     const seatPrice = parseInt(this.dataset.price);
                     const icon = this.querySelector('i');
-                    
+
                     // Check if seat is already selected
                     const seatIndex = selectedSeats.findIndex(s => s.id === seatId);
-                    
+
                     if (seatIndex === -1) {
                         // Seat not selected, add it
                         this.classList.add('selected');
-                        
+
                         // Change icon to check mark
                         icon.classList.remove('fa-couch');
                         icon.classList.add('fa-check');
-                        
+
                         selectedSeats.push({
                             id: seatId,
                             price: seatPrice
@@ -1091,19 +1067,19 @@ function generateSeats() {
                     } else {
                         // Seat already selected, remove it
                         this.classList.remove('selected');
-                        
+
                         // Change icon back to couch
                         icon.classList.remove('fa-check');
                         icon.classList.add('fa-couch');
-                        
+
                         selectedSeats.splice(seatIndex, 1);
                     }
-                    
+
                     // Update sidebar info
                     updateSidebar();
                 });
             }
-            
+
             seatsContainer.appendChild(seat);
         }
     });
@@ -1113,15 +1089,16 @@ function generateSeats() {
 function updateSidebar() {
     const selectedSeatElement = document.querySelector('.seat-value');
     const priceValueElement = document.querySelector('.price-value');
-    
+
     if (selectedSeatElement && priceValueElement) {
         if (selectedSeats.length === 0) {
             selectedSeatElement.textContent = '-';
             priceValueElement.textContent = '0 THB';
+            totalPrice = 0;
         } else {
             // Update selected seats display
             selectedSeatElement.textContent = selectedSeats.map(seat => seat.id).join(', ');
-            
+
             // Calculate total price
             totalPrice = selectedSeats.reduce((sum, seat) => sum + seat.price, 0);
             priceValueElement.textContent = `${totalPrice} THB`;
@@ -1131,53 +1108,77 @@ function updateSidebar() {
 
 // Function to save booking to IndexedDB
 function saveBooking() {
-    if (!db || selectedSeats.length === 0) return;
-    
+    if (!db || selectedSeats.length === 0 || !currentMovie) return;
+
     // Check if user is logged in
     if (!islogin) {
         alert('Please log in to book seats.');
         return;
     }
-    
+
     const transaction = db.transaction(['bookings'], 'readwrite');
     const bookingsStore = transaction.objectStore('bookings');
-    
-    // Create booking record
+
+    // Get the currently selected date
+    const selectedDateElement = document.querySelector('.date-selector .item[style*="color: blue"]');
+    const selectedDateId = selectedDateElement ? selectedDateElement.getAttribute('data-date-id') : 'date-content-1';
+    const selectedDateObj = simpledate.find(d => d.page === selectedDateId);
+
+    // Get the selected time and location
+    const activeTimeContent = document.querySelector('.date-content.active');
+    const selectedTimeElement = activeTimeContent ? activeTimeContent.querySelector('.loginbth2') : null;
+    const selectedLocationElement = activeTimeContent ? activeTimeContent.querySelector('h3') : null;
+
+    const selectedTime = selectedTimeElement ? selectedTimeElement.textContent : '11:00';
+    const selectedLocation = selectedLocationElement ? selectedLocationElement.textContent : 'SF Cinema';
+
+    // Create booking record with enhanced movie details
     const booking = {
         userId: username + ' ' + usersurname, // Use the user's name as userId
-        movieTitle: movieDetails.title,
-        date: movieDetails.date,
-        time: movieDetails.time,
-        location: movieDetails.location,
+        movieTitle: currentMovie.title,
+        movieImage: currentMovie.image,
+        movieGenre: currentMovie.genre,
+        movieDuration: currentMovie.duration,
+        date: selectedDateObj ? selectedDateObj.date : simpledate[0].date,
+        time: selectedTime,
+        location: selectedLocation,
         seats: selectedSeats.map(seat => seat.id),
         totalPrice: totalPrice,
         timestamp: new Date().toISOString()
     };
-    
+
     const bookingRequest = bookingsStore.add(booking);
-    
-    bookingRequest.onsuccess = function(event) {
+
+    bookingRequest.onsuccess = function (event) {
         const bookingId = event.target.result;
-        
+
         // Update UI
         alert(`Booking successful! Your booking ID is: ${bookingId}`);
-        
+
         // Add booked seats to the bookedSeats array
         selectedSeats.forEach(seat => {
             bookedSeats.push(seat.id);
         });
-        
+
         // Refresh seats and booking history
         generateSeats();
         loadBookingHistory();
-        updateProfileBookingHistory();
-        
+
         // Clear selection
         selectedSeats = [];
         updateSidebar();
+
+        // Change to select-time tab after booking is complete
+        const selectTimeElement = document.getElementById('select-time');
+        const selectSeatElement = document.getElementById('select-seat');
+
+        if (selectTimeElement && selectSeatElement) {
+            selectSeatElement.style.display = 'none';
+            selectTimeElement.style.display = 'block';
+        }
     };
-    
-    bookingRequest.onerror = function(event) {
+
+    bookingRequest.onerror = function (event) {
         console.error('Error saving booking:', event.target.error);
         alert('There was an error processing your booking. Please try again.');
     };
@@ -1189,7 +1190,7 @@ function addUser() {
         alert('Database not available. Please try again later.');
         return;
     }
-    
+
     // Start a transaction with read/write access to the 'users' object store
     const transaction = db.transaction(["users"], "readwrite");
     const objectStore = transaction.objectStore("users");
@@ -1218,22 +1219,22 @@ function addUser() {
     const request = objectStore.add(user);
 
     // Handle success
-    request.onsuccess = function() {
+    request.onsuccess = function () {
         console.log("User added successfully:", user);
         alert("User added successfully!");
-        
+
         // Reset form and UI
         document.getElementById("input-email").value = "";
         document.getElementById("input-password").value = "";
         document.getElementById("input-name").value = "";
         document.getElementById("input-surname").value = "";
-        
+
         // Switch back to login view
         addName();
     };
 
     // Handle error
-    request.onerror = function(event) {
+    request.onerror = function (event) {
         console.error("Error adding user:", event.target.error);
         alert("Error adding user. Email may already be registered.");
     };
@@ -1244,7 +1245,7 @@ function checkUserEmailAndPassword() {
         alert('Database not available. Please try again later.');
         return;
     }
-    
+
     const transaction = db.transaction(["users"], "readonly");
     const objectStore = transaction.objectStore("users");
 
@@ -1261,7 +1262,7 @@ function checkUserEmailAndPassword() {
     const emailIndex = objectStore.index("email");
     const getEmailRequest = emailIndex.get(email);
 
-    getEmailRequest.onsuccess = function() {
+    getEmailRequest.onsuccess = function () {
         if (getEmailRequest.result) {
             // Email exists, now check if the password matches
             if (getEmailRequest.result.password === password) {
@@ -1277,10 +1278,9 @@ function checkUserEmailAndPassword() {
                 document.getElementById("input-email").value = "";
                 document.getElementById("input-password").value = "";
                 alert("Login successful!");
-                
+
                 // Load booking history after successful login
                 loadBookingHistory();
-                updateProfileBookingHistory();
             } else {
                 console.log("Incorrect password.");
                 alert("Incorrect password. Please try again.");
@@ -1291,7 +1291,7 @@ function checkUserEmailAndPassword() {
         }
     };
 
-    getEmailRequest.onerror = function(event) {
+    getEmailRequest.onerror = function (event) {
         console.error("Error retrieving user by email:", event.target.error);
         alert("Error checking credentials. Please try again.");
     };
@@ -1343,7 +1343,7 @@ function createnews(item) {
 
 function createdate(item) {
     return `
-        <div onclick="changeDate('${item.page}')" class="item">
+        <div onclick="changeDate('${item.page}')" class="item" data-date-id="${item.page}">
             <h3>${item.day}</h3>
             <h4>${item.date}</h4>
         </div>
@@ -1364,7 +1364,7 @@ function createSystem_Therter(type) {
 function changeDate(tabName) {
     // Hide all tab contents
     var tabs = document.querySelectorAll('.date-content');
-    tabs.forEach(function(tab) {
+    tabs.forEach(function (tab) {
         tab.classList.remove('active');
     });
 
@@ -1373,12 +1373,29 @@ function changeDate(tabName) {
     if (activeTab) {
         activeTab.classList.add('active');
     }
+
+    // Update date selector styling
+    var dateItems = document.querySelectorAll('.date-selector .item');
+    dateItems.forEach(function (item) {
+        if (item.getAttribute('data-date-id') === tabName) {
+            item.style.color = 'blue';
+
+            // Store the selected date
+            const dateId = item.getAttribute('data-date-id');
+            currentDate = simpledate.find(d => d.page === dateId);
+        } else {
+            item.style.color = 'grey';
+        }
+    });
+
+    // Reload booked seats for the new date
+    loadBookedSeats();
 }
 
 function changeTab(tabName) {
     // Hide all tab contents
     var tabs = document.querySelectorAll('.tabcontent');
-    tabs.forEach(function(tab) {
+    tabs.forEach(function (tab) {
         tab.classList.remove('active');
     });
 
@@ -1392,7 +1409,7 @@ function changeTab(tabName) {
 function changeTab2(tabName) {
     // Hide all tab contents
     var tabs = document.querySelectorAll('.content');
-    tabs.forEach(function(tab) {
+    tabs.forEach(function (tab) {
         tab.classList.remove('active');
     });
 
@@ -1406,7 +1423,7 @@ function changeTab2(tabName) {
 function changeTab3(tabName) {
     // Hide all tab contents
     var tabs = document.querySelectorAll('.profile-tab');
-    tabs.forEach(function(tab) {
+    tabs.forEach(function (tab) {
         tab.classList.remove('active');
     });
 
@@ -1422,7 +1439,9 @@ function updateLanguage(lang) {
 
     // Update all text elements with language class
     for (const [key, value] of Object.entries(translations[lang])) {
-        $(`.${key}`).text(value);
+        document.querySelectorAll(`.${key}`).forEach(el => {
+            el.textContent = value;
+        });
     }
 
     // Update movie grids
@@ -1457,37 +1476,87 @@ function goSeat() {
         time.style.display = "none";
         seat.style.display = "block";
     }
+
+    // Store the selected time and cinema
+    const activeTimeContent = document.querySelector('.date-content.active');
+    const selectedTimeElement = activeTimeContent ? activeTimeContent.querySelector('.loginbth2') : null;
+    const selectedLocationElement = activeTimeContent ? activeTimeContent.querySelector('h3') : null;
+
+    if (selectedTimeElement) {
+        currentTime = selectedTimeElement.textContent;
+    }
+
+    if (selectedLocationElement) {
+        currentCinema = selectedLocationElement.textContent;
+    }
+
+    // Update event info in seat selection sidebar
+    const eventTimeElement = document.getElementById('eventTime');
+    const cinemaLocationElement = document.getElementById('cinemaLocation');
+
+    if (eventTimeElement && currentTime) {
+        eventTimeElement.textContent = currentTime;
+    }
+
+    if (cinemaLocationElement && currentCinema) {
+        cinemaLocationElement.textContent = currentCinema;
+    }
+
+    // Generate seats when moving to seat selection
+    generateSeats();
 }
 
 function getTicket(element) {
     const movieString = element.getAttribute("data-movie");
     const movie = JSON.parse(decodeURIComponent(movieString));
 
+    // Store the selected movie globally
+    currentMovie = movie;
+
+    // Hide all pages
     document.querySelectorAll('.page-content').forEach(page => {
         page.classList.remove('active');
     });
 
+    // Show ticket page
     const ticketPage = document.getElementById('ticket-page');
     if (ticketPage) {
         ticketPage.classList.add('active');
-        
+
+        // Update movie details
         const whatMovie = document.getElementById('whatmovie');
         const movieName = document.getElementById('moviename');
         const movieGenre = document.getElementById('moviegenre');
         const movieDuration = document.getElementById('movieduration');
-        
+
         if (whatMovie) whatMovie.style.backgroundImage = `url(${movie.image})`;
         if (movieName) movieName.innerHTML = movie.title;
         if (movieGenre) movieGenre.innerHTML = movie.genre;
         if (movieDuration) movieDuration.innerHTML = movie.duration + " Mins";
+
+        // Update event info in seat selection sidebar
+        const movieTitle = document.getElementById('movieTitle');
+        if (movieTitle) movieTitle.textContent = movie.title;
+
+        // Show time selection by default
+        const selectTime = document.getElementById('select-time');
+        const selectSeat = document.getElementById('select-seat');
+
+        if (selectTime) selectTime.style.display = "block";
+        if (selectSeat) selectSeat.style.display = "none";
+
+        // Load booked seats for this movie
+        loadBookedSeats();
     }
 }
 
 function goProfile() {
+    // Hide all pages
     document.querySelectorAll('.page-content').forEach(page => {
         page.classList.remove('active');
     });
 
+    // Show profile page
     const profilePage = document.getElementById('profile-page');
     if (profilePage) {
         profilePage.classList.add('active');
@@ -1497,44 +1566,51 @@ function goProfile() {
 function lockout() {
     const userElement = document.getElementById('user');
     const openPopupElement = document.getElementById('openPopup');
-    
+
     if (userElement && openPopupElement) {
         userElement.style.display = "none";
         openPopupElement.style.display = "flex";
     }
-    
+
     islogin = false;
     username = null;
     usersurname = null;
+
+    // Go back to home page
+    document.querySelectorAll('.page-content').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById('home-page').classList.add('active');
 }
 
 function addName() {
     let login = document.getElementById('lg');
     let forget = document.getElementById('forget');
-    
+
     if (!login || !forget) return;
-    
+
     if (nxame) {
         login.style.display = "flex";
         forget.style.display = "block";
-        
+
         let n = document.getElementById('input-name1');
         let s = document.getElementById('input-surname1');
         let s1 = document.getElementById('s1');
         let s2 = document.getElementById('s2');
         let sign = document.getElementById('sigh');
-        
+
         if (n) n.remove();
         if (s) s.remove();
         if (s1) s1.remove();
         if (s2) s2.remove();
         if (sign) sign.remove();
-        
+
         nxame = false;
     } else {
         forget.style.display = "none";
         login.style.display = "none";
-        
+
         let input = document.getElementById('input');
         if (input) {
             input.innerHTML += `
@@ -1559,42 +1635,46 @@ function addName() {
                 <div id="sigh" class="loginbth" onclick="addUser()">Sign in</div>
             `;
         }
-        
+
         nxame = true;
     }
 }
 
-// Event listeners
-$(document).ready(function() {
-    // Initialize database
-    initializeDatabase();
-    
+// Setup event listeners
+function setupEventListeners() {
     // Language switchers
-    $('#thai-lang').click(function() {
-        $('#thai-lang').addClass('active');
-        $('#eng-lang').removeClass('active');
-        updateLanguage('thai');
-    });
+    const thaiLang = document.getElementById('thai-lang');
+    const engLang = document.getElementById('eng-lang');
 
-    $('#eng-lang').click(function() {
-        $('#eng-lang').addClass('active');
-        $('#thai-lang').removeClass('active');
-        updateLanguage('english');
-    });
+    if (thaiLang) {
+        thaiLang.addEventListener('click', function () {
+            thaiLang.classList.add('active');
+            engLang.classList.remove('active');
+            updateLanguage('thai');
+        });
+    }
+
+    if (engLang) {
+        engLang.addEventListener('click', function () {
+            engLang.classList.add('active');
+            thaiLang.classList.remove('active');
+            updateLanguage('english');
+        });
+    }
 
     // Movie tab switchers
     const upcomingBtn = document.getElementById('upcomingBtn');
     const comingSoonBtn = document.getElementById('comingSoonBtn');
 
     if (upcomingBtn && comingSoonBtn) {
-        upcomingBtn.addEventListener('click', function() {
+        upcomingBtn.addEventListener('click', function () {
             document.getElementById('upcomingGrid').classList.remove('hidden');
             document.getElementById('comingSoonGrid').classList.add('hidden');
             upcomingBtn.classList.add('active');
             comingSoonBtn.classList.remove('active');
         });
 
-        comingSoonBtn.addEventListener('click', function() {
+        comingSoonBtn.addEventListener('click', function () {
             document.getElementById('upcomingGrid').classList.add('hidden');
             document.getElementById('comingSoonGrid').classList.remove('hidden');
             upcomingBtn.classList.remove('active');
@@ -1603,137 +1683,24 @@ $(document).ready(function() {
     }
 
     // Page navigation
-    $('.nav-item').click(function() {
-        const pageId = $(this).data('page');
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const pageId = this.getAttribute('data-page');
 
-        // Hide all pages
-        $('.page-content').removeClass('active');
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
 
-        // Show selected page
-        $(`#${pageId}-page`).addClass('active');
+            // Show selected page
+            document.getElementById(`${pageId}-page`).classList.add('active');
 
-        // Update active nav item
-        $('.nav-item').removeClass('active');
-        $(this).addClass('active');
-    });
-
-    // Carousel setup
-    $('.title-c').slick({
-        infinite: true,
-        speed: 800,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        fade: true,
-        cssEase: 'linear',
-    });
-
-    $('.vertical-carousel').slick({
-        infinite: true,
-        speed: 800,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        vertical: true,
-        cssEase: 'ease-in-out'
-    });
-
-    $('.curo').slick({
-        infinite: true,
-        speed: 800,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        cssEase: 'linear',
-        dots: true
-    });
-    
-    $('.seats').slick({
-        infinite: true,
-        slidesToShow: 5,
-        slidesToScroll: 5,
-        dots: true,
-        arrows: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-    });
-
-    $('.insideblur').slick({
-        infinite: true,
-        speed: 800,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        fade: true,
-        cssEase: 'linear',
-    });
-    
-    $('.bowlignslick').slick({
-        infinite: true,
-        speed: 800,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        dots: true,
-        cssEase: 'linear',
-    });
-    
-    let autoPlayedOnce = false; // Flag to track autoplay
-
-    $('.date-selector').slick({
-        speed: 800,
-        arrows: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        cssEase: 'linear',
-        focusOnSelect: true,
-        centerPadding: '0',
-        autoplay: true,
-        autoplaySpeed: 1500, // Let it pause briefly before first slide
-        pauseOnHover: false,
-        pauseOnFocus: false,
-        infinite: false
-    });
-    
-    // Stop autoplay after first movement
-    $('.date-selector').on('afterChange', function(event, slick, currentSlide) {
-        if (!autoPlayedOnce) {
-            autoPlayedOnce = true;
-            $(this).slick('slickPause');
-        }
-    });
-    
-    // Trigger setPosition in case there's a layout shift on load
-    $(window).on('load', function() {
-        setTimeout(function() {
-            $('.date-selector').slick('setPosition');
-        }, 100);
-    });
-    
-    $('.insideblur').on('afterChange', function(event, slick, currentSlide) {
-        const newImage = promotion[currentSlide].image;
-        let blur_promo = document.getElementById('blur-promotion');
-        if (blur_promo) {
-            blur_promo.style.backgroundImage = `url("${newImage}")`;
-        }
-    });
-
-    // Update blurred background when slide changes
-    $('.title-c').on('afterChange', function(event, slick, currentSlide) {
-        $(".blur-bg").css("background-image", `url(${hori_img[currentSlide]})`);
-    });
-
-    // Set initial background image
-    $(".blur-bg").css("background-image", `url(${hori_img[0]})`);
-
-    // Date selector click event
-    $('.date-selector').on('click', '.item', function() {
-        if ($(this).hasClass('slick-cloned')) return; // Ignore clones
-
-        // Reset the color of all items
-        $('.date-selector .item').css('color', 'grey');
-        
-        // Change the clicked item's color to blue
-        $(this).css('color', 'blue');
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
     });
 
     // Popup handling
@@ -1760,24 +1727,165 @@ $(document).ready(function() {
 
     // Seat booking event listeners
     const continueBtn = document.querySelector('.continue-btn');
-    if (continueBtn) {
-        continueBtn.addEventListener('click', function() {
-            if (selectedSeats.length > 0) {
-                const confirmBooking = confirm(`You selected seats: ${selectedSeats.map(seat => seat.id).join(', ')} for a total of ${totalPrice} THB. Confirm booking?`);
-                
-                if (confirmBooking) {
-                    saveBooking();
-                }
-            } else {
-                alert('Please select at least one seat to continue');
+if (continueBtn) {
+    continueBtn.addEventListener('click', function () {
+        if (selectedSeats.length > 0) {
+            const confirmBooking = confirm(`You selected seats: ${selectedSeats.map(seat => seat.id).join(', ')} for a total of ${totalPrice} THB. Confirm booking?`);
+            
+            if (confirmBooking) {
+                saveBooking();
             }
-        });
-    }
-    
+        } else {
+            alert('Please select at least one seat to continue');
+        }
+    });
+}
+
     const discountBtn = document.querySelector('.discount-btn');
     if (discountBtn) {
-        discountBtn.addEventListener('click', function() {
+        discountBtn.addEventListener('click', function () {
             alert('Discount options will be shown here');
         });
     }
+}
+
+// Initialize slick carousels
+function initializeSlickCarousels() {
+    // Title carousel
+    $('.title-c').slick({
+        infinite: true,
+        speed: 800,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+        cssEase: 'linear',
+    });
+
+    // Vertical carousel
+    $('.vertical-carousel').slick({
+        infinite: true,
+        speed: 800,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        vertical: true,
+        cssEase: 'ease-in-out'
+    });
+
+    // Curo carousel
+    $('.curo').slick({
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        cssEase: 'linear',
+        dots: true
+    });
+
+    // Seats carousel
+    $('.seats').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        dots: true,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+    });
+
+    // Inside blur carousel
+    $('.insideblur').slick({
+        infinite: true,
+        speed: 800,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        fade: true,
+        cssEase: 'linear',
+    });
+
+    // Bowling slick carousel
+    $('.bowlignslick').slick({
+        infinite: true,
+        speed: 800,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: true,
+        cssEase: 'linear',
+    });
+
+    // Date selector carousel
+    let autoPlayedOnce = false; // Flag to track autoplay
+
+    $('.date-selector').slick({
+        speed: 800,
+        arrows: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        cssEase: 'linear',
+        focusOnSelect: true,
+        centerPadding: '0',
+        autoplay: true,
+        autoplaySpeed: 1500, // Let it pause briefly before first slide
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        infinite: false
+    });
+
+    // Stop autoplay after first movement
+    $('.date-selector').on('afterChange', function (event, slick, currentSlide) {
+        if (!autoPlayedOnce) {
+            autoPlayedOnce = true;
+            $(this).slick('slickPause');
+        }
+    });
+
+    // Update blurred background when promotion slide changes
+    $('.insideblur').on('afterChange', function (event, slick, currentSlide) {
+        const newImage = promotion[currentSlide].image;
+        let blur_promo = document.getElementById('blur-promotion');
+        if (blur_promo) {
+            blur_promo.style.backgroundImage = `url("${newImage}")`;
+        }
+    });
+
+    // Update blurred background when title slide changes
+    $('.title-c').on('afterChange', function (event, slick, currentSlide) {
+        $(".blur-bg").css("background-image", `url(${hori_img[currentSlide]})`);
+    });
+
+    // Set initial background image
+    $(".blur-bg").css("background-image", `url(${hori_img[0]})`);
+}
+
+// Call this function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize everything
+    // initializeDatabase();
+    // setupEventListeners();
+
+    // Set initial tab
+    changeDate("date-content-1");
+    changeTab("brand");
+    changeTab2("allc");
+    changeTab3("booking");
+
+    // Initialize language
+    updateLanguage('thai');
 });
+
+// Make functions available globally
+window.getTicket = getTicket;
+window.goSeat = goSeat;
+window.goProfile = goProfile;
+window.lockout = lockout;
+window.addName = addName;
+window.addUser = addUser;
+window.checkUserEmailAndPassword = checkUserEmailAndPassword;
+window.changeDate = changeDate;
+window.changeTab = changeTab;
+window.changeTab2 = changeTab2;
+window.changeTab3 = changeTab3;
+window.createSystem_Therter = createSystem_Therter;
