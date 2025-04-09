@@ -26,9 +26,6 @@ const translations = {
         'lang-upcoming': 'กำลังจะมาถึง',
         'lang-coming-soon': 'เร็วๆ นี้',
         'lang-recommend': 'ภาพยนตร์แนะนำ',
-        'lang-boxoffice': 'บ็อกซ์ออฟฟิศ',
-        'lang-sf-boxoffice': 'บ็อกซ์ออฟฟิศ SF',
-        'lang-us-boxoffice': 'บ็อกซ์ออฟฟิศ US',
     },
     english: {
         // Navigation
@@ -1105,7 +1102,28 @@ function updateSidebar() {
         }
     }
 }
-
+function hideSelectSeatOnPageChange() {
+    // Get all navigation items
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    // Add event listener to each navigation item
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Check if the seat selection is currently visible
+            const selectSeat = document.getElementById('select-seat');
+            if (selectSeat && selectSeat.style.display === 'block') {
+                // Hide the seat selection
+                selectSeat.style.display = 'none';
+                
+                // Show the time selection instead
+                const selectTime = document.getElementById('select-time');
+                if (selectTime) {
+                    selectTime.style.display = 'block';
+                }
+            }
+        });
+    });
+}
 // Function to save booking to IndexedDB
 function saveBooking() {
     if (!db || selectedSeats.length === 0 || !currentMovie) return;
@@ -1113,6 +1131,7 @@ function saveBooking() {
     // Check if user is logged in
     if (!islogin) {
         alert('Please log in to book seats.');
+        document.getElementById('select-seat').style.display = "none"
         return;
     }
 
@@ -1747,6 +1766,37 @@ if (continueBtn) {
             alert('Discount options will be shown here');
         });
     }
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function () {
+            const pageId = this.getAttribute('data-page');
+
+            // Hide seat selection if it's visible
+            const selectSeat = document.getElementById('select-seat');
+            if (selectSeat && selectSeat.style.display === 'block') {
+                selectSeat.style.display = 'none';
+                
+                // Show the time selection instead
+                const selectTime = document.getElementById('select-time');
+                if (selectTime) {
+                    selectTime.style.display = 'block';
+                }
+            }
+
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(`${pageId}-page`).classList.add('active');
+
+            // Update active nav item
+            document.querySelectorAll('.nav-item').forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            this.classList.add('active');
+        });
+    });
 }
 
 // Initialize slick carousels
