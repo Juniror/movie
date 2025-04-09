@@ -594,7 +594,7 @@ const type = {
         },
         {
             image: "asset/7types/all/11.png",
-            detail: "Presale Promotion ภาพยนตร์เรื่อง ซองแดงแต่งผี จำหน่ายบัตรชมภาพยนตร์ราคาพิเศษในรูปแบบ COLLECTIBLE TICKET SPECIAL EDITION\"",
+            detail: "Presale Promotion ภาพยนตร์เรื่อง ซองแดงแต่งผี : จำหน่ายบัตรชมภาพยนตร์ราคาพิเศษในรูปแบบ \"COLLECTIBLE TICKET SPECIAL EDITION\"",
             subdetail: "จำนวน 5,000 ชุด"
         },
         {
@@ -792,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Database initialization - consolidated
 const initializeDatabase = () => {
-    const request = indexedDB.open('myDatabase', 1);
+    const request = indexedDB.open('myDatabase', 2);
 
     request.onerror = function(event) {
         console.error('Database error:', event.target.errorCode);
