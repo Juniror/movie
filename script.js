@@ -731,7 +731,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize movie grid
     const movieGrid = document.getElementById("movie-grid");
     if (movieGrid) {
-        comingSoonMovies[currentLanguage].forEach(movie => {
+        upcomingMovies['thai'].forEach(movie => {
             movieGrid.innerHTML += createMovieItem(movie);
         });
     }
@@ -789,11 +789,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Initialize news items
-    var ally = document.getElementById('ally');
-    if (ally) {
-        type.mews.forEach((item) => {
-            ally.innerHTML += createnews(item);
+    let ally = document.getElementById('ally');
+    let acc = document.getElementById('accc');
+    let mv = document.getElementById('movieee');
+    let csr = document.getElementById('csrr');
+
+    const randomSlice = (element, usedIndices) => {
+        let randomStartIndex;
+        do {
+            randomStartIndex = Math.floor(Math.random() * type.mews.length);
+        } while (usedIndices.includes(randomStartIndex));
+
+        usedIndices.push(randomStartIndex);
+
+        const randomLength = Math.floor(Math.random() * 3) + 7;
+        const randomMews = type.mews.slice(randomStartIndex, randomStartIndex + randomLength);
+
+        randomMews.forEach((item) => {
+            element.innerHTML += createnews(item);
         });
+    }
+
+    let usedIndices = [];
+    if (ally) {
+        randomSlice(ally, usedIndices);
+    }
+
+    if (acc) {
+        randomSlice(acc, usedIndices);
+    }
+
+    if (mv) {
+        randomSlice(mv, usedIndices);
+    }
+
+    if (csr) {
+        randomSlice(csr, usedIndices);
     }
 
     // Initialize language and theater system
@@ -809,7 +840,36 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize slick carousels
     initializeSlickCarousels();
 });
-
+function populateTabsWithRandomItems() {
+    // Define the tab IDs to populate
+    const tabIds = ['movie-item', 'sf-item', 'food-item', 'bank-item', 'branch-item', 'other-item'];
+    
+    // For each tab ID
+    tabIds.forEach(tabId => {
+        const tabElement = document.getElementById(tabId);
+        if (!tabElement) return;
+        
+        // Clear any existing content
+        tabElement.innerHTML = '';
+        
+        // Determine a random number of items to display (between 5 and 12)
+        const itemCount = Math.floor(Math.random() * 8) + 5; // Random number between 5 and 12
+        
+        // Create a copy of the all array to shuffle
+        const shuffledItems = [...type.all];
+        
+        // Shuffle the array using Fisher-Yates algorithm
+        for (let i = shuffledItems.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledItems[i], shuffledItems[j]] = [shuffledItems[j], shuffledItems[i]];
+        }
+        
+        // Take the first 'itemCount' items and add them to the tab
+        shuffledItems.slice(0, itemCount).forEach(item => {
+            tabElement.innerHTML += createitem(item);
+        });
+    });
+}
 // Database initialization
 function initializeDatabase() {
     const request = indexedDB.open('myDatabase', 2);
@@ -1105,16 +1165,16 @@ function updateSidebar() {
 function hideSelectSeatOnPageChange() {
     // Get all navigation items
     const navItems = document.querySelectorAll('.nav-item');
-    
+
     // Add event listener to each navigation item
     navItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             // Check if the seat selection is currently visible
             const selectSeat = document.getElementById('select-seat');
             if (selectSeat && selectSeat.style.display === 'block') {
                 // Hide the seat selection
                 selectSeat.style.display = 'none';
-                
+
                 // Show the time selection instead
                 const selectTime = document.getElementById('select-time');
                 if (selectTime) {
@@ -1746,19 +1806,19 @@ function setupEventListeners() {
 
     // Seat booking event listeners
     const continueBtn = document.querySelector('.continue-btn');
-if (continueBtn) {
-    continueBtn.addEventListener('click', function () {
-        if (selectedSeats.length > 0) {
-            const confirmBooking = confirm(`You selected seats: ${selectedSeats.map(seat => seat.id).join(', ')} for a total of ${totalPrice} THB. Confirm booking?`);
-            
-            if (confirmBooking) {
-                saveBooking();
+    if (continueBtn) {
+        continueBtn.addEventListener('click', function () {
+            if (selectedSeats.length > 0) {
+                const confirmBooking = confirm(`You selected seats: ${selectedSeats.map(seat => seat.id).join(', ')} for a total of ${totalPrice} THB. Confirm booking?`);
+
+                if (confirmBooking) {
+                    saveBooking();
+                }
+            } else {
+                alert('Please select at least one seat to continue');
             }
-        } else {
-            alert('Please select at least one seat to continue');
-        }
-    });
-}
+        });
+    }
 
     const discountBtn = document.querySelector('.discount-btn');
     if (discountBtn) {
@@ -1774,7 +1834,7 @@ if (continueBtn) {
             const selectSeat = document.getElementById('select-seat');
             if (selectSeat && selectSeat.style.display === 'block') {
                 selectSeat.style.display = 'none';
-                
+
                 // Show the time selection instead
                 const selectTime = document.getElementById('select-time');
                 if (selectTime) {
@@ -1924,6 +1984,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize language
     updateLanguage('thai');
+    let all = document.getElementById("all-item");
+    if (all) {
+        type.all.forEach((item) => {
+            all.innerHTML += createitem(item);
+        });
+    }
+    
+    // Populate other tabs with random items
+    populateTabsWithRandomItems();
 });
 
 // Make functions available globally
