@@ -863,6 +863,36 @@
             </div>
         </div>
     </div>
+    <div id="payment-overlay" class="payment-overlay">
+    <div class="payment-modal">
+        <div class="payment-header">
+            <h2>Select Payment Method</h2>
+            <button id="close-payment" class="close-payment">&times;</button>
+        </div>
+        <div class="payment-details">
+            <p id="selected-seats-display"></p>
+            <p id="total-price-display" class="price-display"></p>
+        </div>
+        <div class="payment-options">
+            <div class="payment-option" data-payment="kbank">
+                <img src="asset/payment/kbank.jpg" alt="KBank">
+                <span>KBank</span>
+            </div>
+            <div class="payment-option" data-payment="promptpay">
+                <img src="asset/payment/promptpay.png" alt="PromptPay">
+                <span>PromptPay</span>
+            </div>
+            <div class="payment-option" data-payment="scb">
+                <img src="asset/payment/scb.jpg" alt="SCB">
+                <span>SCB</span>
+            </div>
+        </div>
+        <div class="payment-actions">
+            <button id="confirm-payment" class="confirm-payment" disabled>Confirm Payment</button>
+            <button id="cancel-payment" class="cancel-payment">Cancel</button>
+        </div>
+    </div>
+</div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

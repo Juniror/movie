@@ -1595,3 +1595,121 @@ input {
     background-color: #7BA7E1;
     color: white;
 }
+.payment-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-modal {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.payment-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.close-payment {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.payment-details {
+    margin-bottom: 20px;
+}
+
+.price-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0066CC;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    border-color: #0066CC;
+    background-color: #f5f9ff;
+}
+
+.payment-option.selected {
+    border-color: #0066CC;
+    background-color: #f0f7ff;
+}
+
+.payment-option img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.payment-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.confirm-payment, .cancel-payment {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.confirm-payment {
+    background-color: #7BA7E1;
+    color: white;
+}
+
+.confirm-payment:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.cancel-payment {
+    background-color: white;
+    border: 1px solid #999;
+    color: #666;
+}

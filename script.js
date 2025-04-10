@@ -1809,17 +1809,74 @@ function setupEventListeners() {
     if (continueBtn) {
         continueBtn.addEventListener('click', function () {
             if (selectedSeats.length > 0) {
-                const confirmBooking = confirm(`You selected seats: ${selectedSeats.map(seat => seat.id).join(', ')} for a total of ${totalPrice} THB. Confirm booking?`);
-
-                if (confirmBooking) {
-                    saveBooking();
-                }
+                // Show payment overlay instead of confirm dialog
+                const paymentOverlay = document.getElementById('payment-overlay');
+                const selectedSeatsDisplay = document.getElementById('selected-seats-display');
+                const totalPriceDisplay = document.getElementById('total-price-display');
+                
+                // Update payment details
+                selectedSeatsDisplay.textContent = `Selected Seats: ${selectedSeats.map(seat => seat.id).join(', ')}`;
+                totalPriceDisplay.textContent = `Total: ${totalPrice} THB`;
+                
+                // Show the overlay
+                paymentOverlay.style.display = 'flex';
+                
+                // Reset payment selection
+                document.querySelectorAll('.payment-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                document.getElementById('confirm-payment').disabled = true;
             } else {
                 alert('Please select at least one seat to continue');
             }
         });
     }
-
+    
+    // Add event listeners for payment options
+    document.querySelectorAll('.payment-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+            
+            // Enable confirm button
+            document.getElementById('confirm-payment').disabled = false;
+        });
+    });
+    
+    // Add event listener for confirm payment button
+    document.getElementById('confirm-payment').addEventListener('click', function() {
+        const selectedPayment = document.querySelector('.payment-option.selected');
+        if (selectedPayment) {
+            const paymentMethod = selectedPayment.getAttribute('data-payment');
+            
+            // Close the overlay
+            document.getElementById('payment-overlay').style.display = 'none';
+            
+            // Save the booking
+            saveBooking();
+        }
+    });
+    
+    // Add event listeners for closing the payment overlay
+    document.getElementById('close-payment').addEventListener('click', function() {
+        document.getElementById('payment-overlay').style.display = 'none';
+    });
+    
+    document.getElementById('cancel-payment').addEventListener('click', function() {
+        document.getElementById('payment-overlay').style.display = 'none';
+    });
+    
+    // Close overlay when clicking outside the modal
+    document.getElementById('payment-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+        }
+    });
     const discountBtn = document.querySelector('.discount-btn');
     if (discountBtn) {
         discountBtn.addEventListener('click', function () {
